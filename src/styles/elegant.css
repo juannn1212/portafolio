@@ -1497,6 +1497,54 @@ header.scrolled {
   gap: 24px;
 }
 
+/* Skill Item Styles */
+.skill-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.skill-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(99, 102, 241, 0.5);
+  transform: translateY(-2px);
+}
+
+.skill-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.skill-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.skill-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.skill-name {
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+  font-size: 16px;
+}
+
+.skill-level {
+  color: #a1a1aa;
+  font-size: 14px;
+}
+
 .skill-item {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -4968,4 +5016,145 @@ header.scrolled {
 .social-card[style*="--social-color: #25d366"] .social-icon-wrapper svg {
   fill: #25d366;
   stroke: #25d366;
+}
+
+/* ========== CORRECCIONES RESPONSIVE PARA SKILLS Y ABOUT ========== */
+
+/* Skills responsive fixes */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  
+  .skill-item {
+    padding: 16px !important;
+    margin: 0 !important;
+  }
+  
+  .skill-name {
+    font-size: 14px !important;
+  }
+  
+  .skill-level {
+    font-size: 12px !important;
+  }
+  
+  .skills-categories-nav {
+    gap: 8px !important;
+    margin-bottom: 30px !important;
+  }
+  
+  .category-nav-btn {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+  }
+  
+  .category-icon {
+    width: 60px !important;
+    height: 60px !important;
+  }
+  
+  .category-title {
+    font-size: 24px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  
+  .skill-item {
+    padding: 12px !important;
+  }
+  
+  .skills-categories-nav {
+    flex-direction: column !important;
+    gap: 6px !important;
+  }
+  
+  .category-nav-btn {
+    width: 100% !important;
+    text-align: center !important;
+  }
+}
+
+/* About section responsive fixes */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+  
+  .stat-card {
+    padding: 20px 16px !important;
+  }
+  
+  .stat-value {
+    font-size: 24px !important;
+  }
+  
+  .stat-label {
+    font-size: 12px !important;
+  }
+  
+  .about-main {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  
+  .experience-card {
+    padding: 20px !important;
+  }
+  
+  .tech-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  
+  .tech-category {
+    padding: 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  
+  .stat-card {
+    padding: 16px 12px !important;
+  }
+  
+  .stat-value {
+    font-size: 20px !important;
+  }
+  
+  .stat-label {
+    font-size: 11px !important;
+  }
+  
+  .experience-card {
+    padding: 16px !important;
+  }
+  
+  .tech-category {
+    padding: 12px !important;
+  }
+  
+  .tech-category h4 {
+    font-size: 16px !important;
+  }
+  
+  .tech-list {
+    gap: 8px !important;
+  }
+  
+  .tech-item {
+    font-size: 12px !important;
+    padding: 6px 10px !important;
+  }
 }
