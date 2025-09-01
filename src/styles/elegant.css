@@ -5218,7 +5218,137 @@ header.scrolled {
 
 /* ========== CORRECCIONES RESPONSIVE PARA SKILLS Y ABOUT ========== */
 
-/* Skills responsive fixes */
+/* ========== SKILLS SECTION FIXES ========== */
+.skills-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 20px !important;
+}
+
+.skill-item {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  padding: 20px !important;
+  transition: all 0.3s ease !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.skill-item:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(99, 102, 241, 0.5) !important;
+  transform: translateY(-2px) !important;
+}
+
+.skill-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  width: 100% !important;
+}
+
+.skill-icon {
+  font-size: 24px !important;
+  flex-shrink: 0 !important;
+}
+
+.skill-name {
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  font-size: 16px !important;
+  flex: 1 !important;
+}
+
+.skill-level {
+  color: #6366f1 !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  background: rgba(99, 102, 241, 0.1) !important;
+  padding: 4px 8px !important;
+  border-radius: 6px !important;
+}
+
+.skill-progress {
+  width: 100% !important;
+  margin-top: 8px !important;
+}
+
+.progress-bar {
+  width: 100% !important;
+  height: 6px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 3px !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.progress-fill {
+  height: 100% !important;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6) !important;
+  border-radius: 3px !important;
+  transition: width 0.6s ease !important;
+  width: var(--skill-level) !important;
+}
+
+/* ========== ABOUT SECTION FIXES ========== */
+.tech-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+  gap: 20px !important;
+}
+
+.tech-category {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  padding: 20px !important;
+  transition: all 0.3s ease !important;
+}
+
+.tech-category:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(99, 102, 241, 0.5) !important;
+  transform: translateY(-2px) !important;
+}
+
+.tech-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-bottom: 16px !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+}
+
+.tech-list {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+}
+
+.tech-tag {
+  background: rgba(99, 102, 241, 0.1) !important;
+  border: 1px solid rgba(99, 102, 241, 0.3) !important;
+  border-radius: 20px !important;
+  padding: 6px 12px !important;
+  font-size: 12px !important;
+  color: #6366f1 !important;
+  transition: all 0.3s ease !important;
+  white-space: nowrap !important;
+}
+
+.tech-tag:hover {
+  background: rgba(99, 102, 241, 0.2) !important;
+  border-color: rgba(99, 102, 241, 0.5) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ========== RESPONSIVE BREAKPOINTS ========== */
 @media (max-width: 768px) {
   .skills-grid {
     grid-template-columns: 1fr !important;
@@ -5227,69 +5357,45 @@ header.scrolled {
   
   .skill-item {
     padding: 16px !important;
-    margin: 0 !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 12px !important;
   }
   
   .skill-header {
-    width: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: 12px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
   }
   
   .skill-name {
     font-size: 14px !important;
-    flex: 1 !important;
   }
   
   .skill-level {
     font-size: 12px !important;
-    font-weight: 600 !important;
+    align-self: flex-end !important;
   }
   
-  .skill-progress {
-    width: 100% !important;
+  .tech-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
   }
   
-  .skills-categories-nav {
+  .tech-category {
+    padding: 16px !important;
+  }
+  
+  .tech-header {
+    flex-direction: column !important;
     gap: 8px !important;
-    margin-bottom: 30px !important;
-    flex-wrap: wrap !important;
+    text-align: center !important;
   }
   
-  .category-nav-btn {
-    padding: 8px 12px !important;
-    font-size: 12px !important;
-    white-space: nowrap !important;
-  }
-  
-  .category-icon {
-    width: 60px !important;
-    height: 60px !important;
-  }
-  
-  .category-title {
-    font-size: 24px !important;
-  }
-  
-  .languages-grid {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-  
-  .focus-grid {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
+  .tech-list {
+    justify-content: center !important;
   }
 }
 
 @media (max-width: 480px) {
   .skills-grid {
-    grid-template-columns: 1fr !important;
     gap: 12px !important;
   }
   
@@ -5297,18 +5403,139 @@ header.scrolled {
     padding: 12px !important;
   }
   
-  .skills-categories-nav {
-    flex-direction: column !important;
-    gap: 6px !important;
+  .skill-name {
+    font-size: 13px !important;
   }
   
-  .category-nav-btn {
-    width: 100% !important;
-    text-align: center !important;
+  .skill-level {
+    font-size: 11px !important;
+  }
+  
+  .tech-category {
+    padding: 12px !important;
+  }
+  
+  .tech-tag {
+    font-size: 11px !important;
+    padding: 4px 8px !important;
   }
 }
 
-/* About section responsive fixes */
+/* ========== ADDITIONAL ABOUT SECTION STYLES ========== */
+.stats-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+  gap: 20px !important;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  text-align: center !important;
+  transition: all 0.3s ease !important;
+}
+
+.stat-card:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(99, 102, 241, 0.5) !important;
+  transform: translateY(-2px) !important;
+}
+
+.stat-icon {
+  margin-bottom: 16px !important;
+}
+
+.stat-value {
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin-bottom: 8px !important;
+}
+
+.stat-label {
+  font-size: 14px !important;
+  color: #a1a1aa !important;
+}
+
+.about-main {
+  display: grid !important;
+  grid-template-columns: 2fr 1fr !important;
+  gap: 40px !important;
+  margin-bottom: 40px !important;
+}
+
+.about-text h3 {
+  color: #ffffff !important;
+  font-size: 24px !important;
+  margin-bottom: 16px !important;
+}
+
+.about-text p {
+  color: #a1a1aa !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 16px !important;
+}
+
+.experience-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  margin-bottom: 30px !important;
+}
+
+.experience-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  margin-bottom: 20px !important;
+}
+
+.experience-title h4 {
+  color: #ffffff !important;
+  font-size: 20px !important;
+  margin: 0 0 8px 0 !important;
+}
+
+.company {
+  color: #6366f1 !important;
+  font-size: 16px !important;
+}
+
+.experience-meta {
+  text-align: right !important;
+}
+
+.period {
+  color: #a1a1aa !important;
+  font-size: 14px !important;
+  display: block !important;
+  margin-bottom: 8px !important;
+}
+
+.location {
+  color: #a1a1aa !important;
+  font-size: 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.achievements-list {
+  color: #a1a1aa !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  padding-left: 20px !important;
+}
+
+.achievements-list li {
+  margin-bottom: 8px !important;
+}
+
+/* ========== ADDITIONAL RESPONSIVE STYLES ========== */
 @media (max-width: 768px) {
   .stats-grid {
     grid-template-columns: repeat(2, 1fr) !important;
@@ -5329,37 +5556,20 @@ header.scrolled {
   
   .about-main {
     grid-template-columns: 1fr !important;
-    gap: 40px !important;
+    gap: 30px !important;
   }
   
   .experience-card {
     padding: 20px !important;
   }
   
-  .tech-grid {
-    grid-template-columns: 1fr !important;
+  .experience-header {
+    flex-direction: column !important;
     gap: 16px !important;
   }
   
-  .tech-category {
-    padding: 16px !important;
-  }
-  
-  .tech-header {
-    flex-direction: column !important;
-    gap: 8px !important;
-    text-align: center !important;
-  }
-  
-  .tech-list {
-    justify-content: center !important;
-    flex-wrap: wrap !important;
-    gap: 8px !important;
-  }
-  
-  .tech-tag {
-    font-size: 12px !important;
-    padding: 6px 10px !important;
+  .experience-meta {
+    text-align: left !important;
   }
 }
 
@@ -5385,20 +5595,11 @@ header.scrolled {
     padding: 16px !important;
   }
   
-  .tech-category {
-    padding: 12px !important;
+  .about-text h3 {
+    font-size: 20px !important;
   }
   
-  .tech-category h4 {
-    font-size: 16px !important;
-  }
-  
-  .tech-list {
-    gap: 8px !important;
-  }
-  
-  .tech-item {
-    font-size: 12px !important;
-    padding: 6px 10px !important;
+  .about-text p {
+    font-size: 14px !important;
   }
 }
