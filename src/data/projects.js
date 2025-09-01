@@ -1,139 +1,133 @@
 export const projects = [
   {
     id: 1,
-    title: "E-Commerce Moderno",
-    description: "Plataforma de comercio electrónico completa con carrito de compras, pagos seguros y panel de administración.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop&crop=center",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
-    category: "Full Stack",
+    title: "AI-Powered Personal Assistant",
+    description: "Asistente psicológico inteligente con análisis emocional avanzado usando TensorFlow. Combina productividad con apoyo psicológico y motivacional en una app móvil completa.",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop&crop=center",
+    technologies: ["React Native", "FastAPI", "TensorFlow", "Python", "SQLite/PostgreSQL"],
+    category: "AI/ML",
     featured: true,
-    demoUrl: "https://demo-ecommerce.com",
-    githubUrl: "https://github.com/juannn1212/ecommerce-project",
+    demoUrl: "https://ai-assistant-demo.com",
+    githubUrl: "https://github.com/juannn1212/AI-Powered_Personal_Assistant",
     details: {
-      challenge: "Crear una experiencia de compra fluida y segura",
-      solution: "Implementé un sistema completo con autenticación JWT, integración de pagos y dashboard administrativo",
+      challenge: "Crear un asistente psicológico inteligente que combine productividad con apoyo emocional usando IA avanzada",
+      solution: "Desarrollé una aplicación móvil completa con análisis emocional usando TensorFlow, gestión de tareas/hábitos y soporte psicológico personalizado",
       features: [
-        "Autenticación segura con JWT",
-        "Carrito de compras persistente",
-        "Integración con Stripe para pagos",
-        "Panel de administración completo",
-        "Búsqueda y filtros avanzados",
-        "Diseño responsive y accesible"
+        "Análisis emocional inteligente con TensorFlow y detección de estados emocionales",
+        "Soporte psicológico especializado para situaciones difíciles (pérdida, ansiedad, tristeza)",
+        "Gestión completa de tareas y hábitos con categorización y prioridades",
+        "Analytics avanzados con gráficos interactivos y seguimiento de productividad",
+        "Aplicación móvil React Native con autenticación JWT y persistencia de datos"
       ]
     }
   },
   {
     id: 2,
-    title: "App de Gestión de Tareas",
-    description: "Aplicación web para la gestión de proyectos y tareas con colaboración en tiempo real y seguimiento de progreso.",
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop&crop=center",
-    technologies: ["React", "Firebase", "Material-UI", "Socket.io"],
-    category: "Frontend",
-    featured: true,
-    demoUrl: "https://task-manager-demo.com",
-    githubUrl: "https://github.com/juannn1212/task-manager",
+    title: "Sistema de Gestión de Biblioteca",
+    description: "Plataforma web completa para gestión de bibliotecas con préstamos, reservas, catálogo digital y sistema de usuarios.",
+    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=600&fit=crop&crop=center",
+    technologies: ["Spring Boot", "React", "PostgreSQL", "JWT", "Spring Security"],
+    category: "Full Stack",
+    featured: false,
+    demoUrl: "https://library-management-demo.com",
+    githubUrl: "https://github.com/juannn1212/library-management",
     details: {
-      challenge: "Facilitar la colaboración en equipo para proyectos complejos",
-      solution: "Desarrollé una interfaz intuitiva con actualizaciones en tiempo real y sistema de notificaciones",
+      challenge: "Crear un sistema robusto para gestión de bibliotecas con múltiples funcionalidades",
+      solution: "Desarrollé una plataforma completa con Spring Boot, gestión de préstamos y catálogo digital",
       features: [
-        "Colaboración en tiempo real",
-        "Tableros Kanban interactivos",
-        "Sistema de notificaciones",
-        "Seguimiento de tiempo",
-        "Reportes y analíticas",
-        "Integración con calendario"
+        "Gestión completa de libros, usuarios y préstamos",
+        "Sistema de reservas y renovaciones automáticas",
+        "Catálogo digital con búsqueda avanzada",
+        "Sistema de multas y notificaciones",
+        "API RESTful con documentación Swagger"
       ]
     }
   },
   {
     id: 3,
-    title: "Dashboard de Analíticas",
-    description: "Dashboard interactivo para visualización de datos con gráficos dinámicos y reportes personalizables.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&crop=center",
-    technologies: ["Vue.js", "D3.js", "Express", "PostgreSQL"],
-    category: "Data Visualization",
+    title: "Plataforma de Streaming Personal",
+    description: "Sistema de streaming de video personal con transcodificación automática, múltiples calidades y chat en tiempo real.",
+    image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop&crop=center",
+    technologies: ["React", "Node.js", "FFmpeg", "WebRTC", "Socket.io"],
+    category: "Full Stack",
     featured: false,
-    demoUrl: "https://analytics-dashboard.com",
-    githubUrl: "https://github.com/juannn1212/analytics-dashboard",
+    demoUrl: "https://streaming-platform-demo.com",
+    githubUrl: "https://github.com/juannn1212/personal-streaming",
     details: {
-      challenge: "Presentar datos complejos de forma clara y actionable",
-      solution: "Creé visualizaciones interactivas con filtros dinámicos y exportación de reportes",
+      challenge: "Crear una plataforma de streaming con transcodificación automática",
+      solution: "Implementé un sistema completo con múltiples calidades y chat interactivo",
       features: [
-        "Gráficos interactivos con D3.js",
-        "Filtros dinámicos en tiempo real",
-        "Exportación de reportes PDF/Excel",
-        "Alertas automáticas",
-        "Dashboard personalizable",
-        "API REST robusta"
+        "Transcodificación automática de video con FFmpeg",
+        "Múltiples calidades de streaming (720p, 1080p, 4K)",
+        "Chat en tiempo real con moderación",
+        "Sistema de donaciones y suscripciones",
+        "Dashboard de estadísticas en tiempo real"
       ]
     }
   },
   {
     id: 4,
-    title: "App Móvil de Fitness",
-    description: "Aplicación móvil para seguimiento de ejercicios y rutinas personalizadas con sincronización en la nube.",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&crop=center",
-    technologies: ["React Native", "Redux", "Firebase", "Expo"],
+    title: "App de Gestión de Eventos",
+    description: "Aplicación móvil para gestión completa de eventos con venta de tickets, check-in QR y análisis de asistencia.",
+    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop&crop=center",
+    technologies: ["React Native", "Firebase", "Stripe", "QR Code API", "Google Maps"],
     category: "Mobile",
     featured: false,
-    demoUrl: "https://fitness-app-demo.com",
-    githubUrl: "https://github.com/juannn1212/fitness-app",
+    demoUrl: "https://event-management-demo.com",
+    githubUrl: "https://github.com/juannn1212/event-management",
     details: {
-      challenge: "Crear una experiencia móvil fluida para el seguimiento de fitness",
-      solution: "Desarrollé una app nativa con sincronización offline y rutinas personalizadas",
+      challenge: "Crear una app completa para gestión de eventos con múltiples funcionalidades",
+      solution: "Desarrollé una plataforma integral con venta de tickets y análisis de datos",
       features: [
-        "Seguimiento de ejercicios",
-        "Rutinas personalizadas",
-        "Sincronización offline",
-        "Estadísticas de progreso",
-        "Recordatorios push",
-        "Integración con wearables"
+        "Venta de tickets con Stripe",
+        "Check-in con códigos QR",
+        "Mapas interactivos de ubicaciones",
+        "Análisis de asistencia en tiempo real",
+        "Sistema de notificaciones push"
       ]
     }
   },
   {
     id: 5,
-    title: "Plataforma de Aprendizaje",
-    description: "Sistema de gestión de aprendizaje (LMS) con cursos interactivos, evaluaciones y seguimiento de progreso.",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop&crop=center",
-    technologies: ["Next.js", "Prisma", "PostgreSQL", "Tailwind CSS"],
-    category: "Full Stack",
-    featured: true,
-    demoUrl: "https://learning-platform.com",
-    githubUrl: "https://github.com/juannn1212/learning-platform",
+    title: "Dashboard de Monitoreo IoT",
+    description: "Dashboard web para monitoreo de dispositivos IoT con visualización de datos, alertas y control remoto.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&crop=center",
+    technologies: ["React", "Node.js", "MQTT", "Chart.js", "WebSocket"],
+    category: "IoT",
+    featured: false,
+    demoUrl: "https://iot-dashboard-demo.com",
+    githubUrl: "https://github.com/juannn1212/iot-monitoring",
     details: {
-      challenge: "Crear una plataforma educativa completa y escalable",
-      solution: "Implementé un LMS completo con video streaming, evaluaciones y gamificación",
+      challenge: "Crear un dashboard para monitoreo de dispositivos IoT en tiempo real",
+      solution: "Implementé un sistema completo con visualización de datos y control remoto",
       features: [
-        "Cursos multimedia interactivos",
-        "Sistema de evaluaciones",
-        "Seguimiento de progreso",
-        "Certificaciones automáticas",
-        "Foros de discusión",
-        "Gamificación con badges"
+        "Monitoreo en tiempo real de dispositivos IoT",
+        "Visualización de datos con gráficos interactivos",
+        "Sistema de alertas personalizables",
+        "Control remoto de dispositivos",
+        "Historial de datos y reportes"
       ]
     }
   },
   {
     id: 6,
-    title: "API REST de Blog",
-    description: "API completa para sistema de blog con autenticación, comentarios, categorías y sistema de likes.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop&crop=center",
-    technologies: ["Node.js", "Express", "MongoDB", "JWT", "Cloudinary"],
-    category: "Backend",
+    title: "Plataforma de Colaboración en Tiempo Real",
+    description: "Herramienta web para colaboración en tiempo real con editor de documentos, videollamadas y pizarra virtual.",
+    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop&crop=center",
+    technologies: ["React", "Socket.io", "WebRTC", "Quill.js", "Canvas API"],
+    category: "Full Stack",
     featured: false,
-    demoUrl: "https://blog-api-docs.com",
-    githubUrl: "https://github.com/juannn1212/blog-api",
+    demoUrl: "https://collaboration-platform-demo.com",
+    githubUrl: "https://github.com/juannn1212/realtime-collaboration",
     details: {
-      challenge: "Desarrollar una API robusta y bien documentada",
-      solution: "Creé una API RESTful completa con documentación automática y testing",
+      challenge: "Crear una plataforma de colaboración con múltiples herramientas integradas",
+      solution: "Desarrollé un sistema completo con editor colaborativo y comunicación en tiempo real",
       features: [
-        "CRUD completo de posts",
-        "Sistema de autenticación JWT",
-        "Comentarios anidados",
-        "Upload de imágenes",
-        "Búsqueda full-text",
-        "Documentación con Swagger"
+        "Editor de documentos colaborativo en tiempo real",
+        "Videollamadas integradas con WebRTC",
+        "Pizarra virtual con dibujo colaborativo",
+        "Sistema de permisos y roles",
+        "Historial de cambios y versiones"
       ]
     }
   }
@@ -141,11 +135,10 @@ export const projects = [
 
 export const categories = [
   "Todos",
+  "AI/ML",
   "Full Stack",
-  "Frontend",
-  "Backend", 
   "Mobile",
-  "Data Visualization"
+  "IoT"
 ]
 
 // Función helper para obtener proyectos por categoría

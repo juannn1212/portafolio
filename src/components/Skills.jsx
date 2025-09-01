@@ -1,266 +1,284 @@
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import { 
-  Code2, 
-  Database, 
-  Palette, 
-  Smartphone, 
-  Cloud, 
-  GitBranch,
-  Monitor,
-  Server,
-  Layers,
-  Zap
-} from 'lucide-react'
+import React, { useState, useEffect } from 'react'
+import { Code, Server, Cloud, Smartphone, Globe, Database, Zap, Star, Sparkles, Target, Rocket, Palette } from 'lucide-react'
 
 const Skills = () => {
-  const [selectedCategory, setSelectedCategory] = useState('Frontend')
+  const [activeCategory, setActiveCategory] = useState(0)
+  const [hoveredSkill, setHoveredSkill] = useState(null)
+  const [isManualSelection, setIsManualSelection] = useState(false)
 
-  const skillCategories = {
-    Frontend: {
-      icon: Monitor,
-      color: 'from-blue-400 to-cyan-400',
+  const skillCategories = [
+    {
+      icon: Globe,
+      title: 'Frontend',
+      color: '#00d4ff',
+      gradient: 'linear-gradient(135deg, #00d4ff 0%, #0099cc 100%)',
       skills: [
-        { name: 'React', level: 95, description: 'Hooks, Context API, Redux' },
-        { name: 'JavaScript', level: 90, description: 'ES6+, Async/Await, DOM' },
-        { name: 'TypeScript', level: 85, description: 'Tipos, Interfaces, Generics' },
-        { name: 'HTML/CSS', level: 95, description: 'Semantic HTML, Flexbox, Grid' },
-        { name: 'Tailwind CSS', level: 90, description: 'Responsive Design, Components' },
-        { name: 'Vue.js', level: 80, description: 'Composition API, Vuex' },
-        { name: 'Next.js', level: 85, description: 'SSR, SSG, API Routes' },
-        { name: 'Sass/SCSS', level: 88, description: 'Variables, Mixins, Nesting' }
+        { name: 'React', level: 95, icon: '⚛️' },
+        { name: 'Next.js', level: 90, icon: '⚡' },
+        { name: 'TypeScript', level: 88, icon: '📘' },
+        { name: 'Tailwind CSS', level: 92, icon: '🎨' },
+        { name: 'SASS', level: 85, icon: '💎' },
+        { name: 'JavaScript', level: 95, icon: '🟨' }
       ]
     },
-    Backend: {
+    {
       icon: Server,
-      color: 'from-green-400 to-emerald-400',
+      title: 'Backend',
+      color: '#ff6b6b',
+      gradient: 'linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%)',
       skills: [
-        { name: 'Node.js', level: 90, description: 'Express, Middleware, Streams' },
-        { name: 'Python', level: 85, description: 'Django, FastAPI, Flask' },
-        { name: 'MongoDB', level: 88, description: 'Aggregation, Indexing, Mongoose' },
-        { name: 'PostgreSQL', level: 82, description: 'Queries, Relations, Optimization' },
-        { name: 'REST APIs', level: 92, description: 'Design, Documentation, Testing' },
-        { name: 'GraphQL', level: 78, description: 'Queries, Mutations, Apollo' },
-        { name: 'Firebase', level: 85, description: 'Auth, Firestore, Functions' },
-        { name: 'JWT', level: 90, description: 'Authentication, Authorization' }
+        { name: 'Node.js', level: 92, icon: '🟢' },
+        { name: 'Express', level: 90, icon: '🚀' },
+        { name: 'Python', level: 85, icon: '🐍' },
+        { name: 'Django', level: 80, icon: '🎯' },
+        { name: 'C#', level: 75, icon: '💜' },
+        { name: 'NestJS', level: 82, icon: '🪺' }
       ]
     },
-    Mobile: {
+    {
       icon: Smartphone,
-      color: 'from-purple-400 to-pink-400',
+      title: 'Móvil',
+      color: '#51cf66',
+      gradient: 'linear-gradient(135deg, #51cf66 0%, #40c057 100%)',
       skills: [
-        { name: 'React Native', level: 85, description: 'Navigation, AsyncStorage, APIs' },
-        { name: 'Expo', level: 88, description: 'Development, Building, Publishing' },
-        { name: 'Flutter', level: 75, description: 'Widgets, State Management' },
-        { name: 'iOS Development', level: 70, description: 'Swift, UIKit, Core Data' },
-        { name: 'Android', level: 72, description: 'Kotlin, Jetpack Compose' }
+        { name: 'React Native', level: 88, icon: '📱' },
+        { name: 'Flutter', level: 85, icon: '🦋' },
+        { name: 'Ionic', level: 80, icon: '⚡' },
+        { name: 'PWA', level: 90, icon: '🌐' },
+        { name: 'Mobile UI/UX', level: 92, icon: '🎨' }
       ]
     },
-    Tools: {
-      icon: Layers,
-      color: 'from-orange-400 to-red-400',
+    {
+      icon: Database,
+      title: 'Bases de Datos',
+      color: '#ae8cff',
+      gradient: 'linear-gradient(135deg, #ae8cff 0%, #9775fa 100%)',
       skills: [
-        { name: 'Git', level: 92, description: 'Branching, Merging, Workflows' },
-        { name: 'Docker', level: 80, description: 'Containers, Compose, Images' },
-        { name: 'AWS', level: 75, description: 'EC2, S3, Lambda, RDS' },
-        { name: 'Webpack', level: 85, description: 'Bundling, Optimization, Plugins' },
-        { name: 'Jest', level: 88, description: 'Unit Testing, Mocking, Coverage' },
-        { name: 'Figma', level: 82, description: 'Design Systems, Prototyping' },
-        { name: 'VS Code', level: 95, description: 'Extensions, Debugging, Shortcuts' }
+        { name: 'MySQL', level: 88, icon: '🐬' },
+        { name: 'MongoDB', level: 85, icon: '🍃' },
+        { name: 'PostgreSQL', level: 82, icon: '🐘' },
+        { name: 'Redis', level: 80, icon: '🔴' },
+        { name: 'Diseño de BD', level: 90, icon: '🗄️' }
+      ]
+    },
+    {
+      icon: Cloud,
+      title: 'DevOps & Cloud',
+      color: '#ffd43b',
+      gradient: 'linear-gradient(135deg, #ffd43b 0%, #fcc419 100%)',
+      skills: [
+        { name: 'AWS', level: 85, icon: '☁️' },
+        { name: 'Google Cloud', level: 80, icon: '🌤️' },
+        { name: 'Docker', level: 88, icon: '🐳' },
+        { name: 'CI/CD', level: 85, icon: '🔄' },
+        { name: 'Git', level: 92, icon: '📝' }
+      ]
+    },
+    {
+      icon: Code,
+      title: 'Herramientas',
+      color: '#ff922b',
+      gradient: 'linear-gradient(135deg, #ff922b 0%, #fd7e14 100%)',
+      skills: [
+        { name: 'Figma', level: 90, icon: '🎨' },
+        { name: 'VS Code', level: 95, icon: '💻' },
+        { name: 'Postman', level: 88, icon: '📮' },
+        { name: 'Vite', level: 85, icon: '⚡' },
+        { name: 'Webpack', level: 80, icon: '📦' }
       ]
     }
-  }
+  ]
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1
-      }
+  const languages = [
+    { name: 'Español', level: 'Nativo', flag: '🇪🇸', proficiency: 100 },
+    { name: 'Inglés', level: 'Intermedio', flag: '🇺🇸', proficiency: 75 }
+  ]
+
+  const developmentFocus = [
+    {
+      icon: Target,
+      title: 'Mobile-First',
+      description: 'Diseño responsivo y desarrollo móvil nativo',
+      color: '#00d4ff'
+    },
+    {
+      icon: Zap,
+      title: 'Performance',
+      description: 'Optimización de velocidad y rendimiento',
+      color: '#ff6b6b'
+    },
+    {
+      icon: Palette,
+      title: 'UX/UI',
+      description: 'Experiencias de usuario intuitivas y atractivas',
+      color: '#51cf66'
+    },
+    {
+      icon: Rocket,
+      title: 'Innovación',
+      description: 'Implementación de tecnologías emergentes',
+      color: '#ae8cff'
     }
-  }
+  ]
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
+  useEffect(() => {
+    if (isManualSelection) {
+      const timeout = setTimeout(() => {
+        setIsManualSelection(false)
+      }, 10000)
+      return () => clearTimeout(timeout)
     }
-  }
 
-  const SkillBar = ({ skill, index }) => (
-    <motion.div
-      variants={itemVariants}
-      className="group"
-    >
-      <div className="flex justify-between items-center mb-2">
-        <h4 className="text-white font-semibold">{skill.name}</h4>
-        <span className="text-sm text-gray-400">{skill.level}%</span>
-      </div>
-      <div className="h-2 bg-gray-800 rounded-full overflow-hidden mb-2">
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: `${skill.level}%` }}
-          transition={{ duration: 1, delay: index * 0.1, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className={`h-full bg-gradient-to-r ${skillCategories[selectedCategory].color} rounded-full relative`}
-        >
-          <div className="absolute inset-0 bg-white/20 animate-pulse" />
-        </motion.div>
-      </div>
-      <p className="text-xs text-gray-500 group-hover:text-gray-400 transition-colors">
-        {skill.description}
-      </p>
-    </motion.div>
-  )
-
-  const CategoryButton = ({ category, isActive, onClick }) => {
-    const CategoryIcon = skillCategories[category].icon
-    return (
-      <motion.button
-        whileHover={{ scale: 1.05, y: -2 }}
-        whileTap={{ scale: 0.95 }}
-        onClick={onClick}
-        className={`flex items-center gap-3 p-4 rounded-xl transition-all duration-300 ${
-          isActive 
-            ? 'glass-strong border-2 border-purple-500/30' 
-            : 'glass hover:glass-strong'
-        }`}
-      >
-        <div className={`p-2 rounded-lg bg-gradient-to-r ${skillCategories[category].color}`}>
-          <CategoryIcon size={20} className="text-white" />
-        </div>
-        <div className="text-left">
-          <h3 className="font-semibold text-white">{category}</h3>
-          <p className="text-xs text-gray-400">
-            {skillCategories[category].skills.length} habilidades
-          </p>
-        </div>
-      </motion.button>
-    )
-  }
+    const interval = setInterval(() => {
+      if (!isManualSelection) {
+        setActiveCategory((prev) => (prev + 1) % skillCategories.length)
+      }
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [isManualSelection, skillCategories.length])
 
   return (
-    <section id="skills" className="section-padding bg-gradient-to-b from-transparent to-gray-900/20">
-      <div className="container mx-auto px-4">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          className="max-w-6xl mx-auto"
-        >
-          {/* Título de sección */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="text-gradient">Habilidades</span>
-            </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Tecnologías y herramientas que domino para crear soluciones completas
-            </p>
-          </motion.div>
+    <section id="skills" className="section skills-section">
+      <div className="container">
+        <div className="section-header">
+          <h2>
+            <span className="gradient-text">Skills</span> & Tecnologías
+          </h2>
+          <p>
+            Tecnologías y herramientas que domino para crear aplicaciones web y móviles 
+            modernas e innovadoras
+          </p>
+        </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Categorías */}
-            <motion.div variants={itemVariants} className="lg:col-span-1">
-              <h3 className="text-2xl font-bold text-white mb-6">Categorías</h3>
-              <div className="space-y-4">
-                {Object.keys(skillCategories).map((category) => (
-                  <CategoryButton
-                    key={category}
-                    category={category}
-                    isActive={selectedCategory === category}
-                    onClick={() => setSelectedCategory(category)}
-                  />
-                ))}
-              </div>
-
-              {/* Estadísticas generales */}
-              <motion.div
-                variants={itemVariants}
-                className="mt-8 glass p-6 rounded-xl"
-              >
-                <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                  <Zap className="text-yellow-400" size={20} />
-                  Estadísticas
-                </h4>
-                <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Total de habilidades</span>
-                    <span className="text-white font-semibold">
-                      {Object.values(skillCategories).reduce((acc, cat) => acc + cat.skills.length, 0)}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Años de experiencia</span>
-                    <span className="text-white font-semibold">3+</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Proyectos completados</span>
-                    <span className="text-white font-semibold">50+</span>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Skills de la categoría seleccionada */}
-            <motion.div
-              key={selectedCategory}
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              className="lg:col-span-2"
+        {/* Category Navigation */}
+        <div className="skills-categories-nav">
+          {skillCategories.map((category, index) => (
+            <button
+              key={index}
+              className={`category-nav-btn ${activeCategory === index ? 'active' : ''}`}
+              onClick={() => {
+                setActiveCategory(index)
+                setIsManualSelection(true)
+              }}
+              style={{ '--category-color': category.color }}
             >
-              <div className="flex items-center gap-4 mb-8">
-                <div className={`p-3 rounded-xl bg-gradient-to-r ${skillCategories[selectedCategory].color}`}>
-                  {React.createElement(skillCategories[selectedCategory].icon, { size: 24, className: "text-white" })}
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-white">{selectedCategory}</h3>
-                  <p className="text-gray-400">
-                    {skillCategories[selectedCategory].skills.length} habilidades en esta categoría
-                  </p>
-                </div>
-              </div>
+              <category.icon size={20} />
+              <span>{category.title}</span>
+              <div className="nav-btn-glow"></div>
+            </button>
+          ))}
+        </div>
 
-              <div className="grid gap-6">
-                {skillCategories[selectedCategory].skills.map((skill, index) => (
-                  <SkillBar key={skill.name} skill={skill} index={index} />
-                ))}
+        {/* Skills Display */}
+        <div className="skills-display-container">
+          <div className="skills-display">
+            {skillCategories.map((category, categoryIndex) => (
+              <div
+                key={categoryIndex}
+                className={`skills-category ${activeCategory === categoryIndex ? 'active' : ''}`}
+                style={{ '--category-gradient': category.gradient }}
+              >
+                <div className="category-header">
+                  <div className="category-icon">
+                    <category.icon size={32} color="white" />
+                    <div className="icon-glow"></div>
+                  </div>
+                  <h3 className="category-title">{category.title}</h3>
+                  <div className="category-decoration"></div>
+                </div>
+
+                <div className="skills-grid">
+                  {category.skills.map((skill, skillIndex) => (
+                    <div
+                      key={skillIndex}
+                      className={`skill-item ${hoveredSkill === `${categoryIndex}-${skillIndex}` ? 'hovered' : ''}`}
+                      onMouseEnter={() => setHoveredSkill(`${categoryIndex}-${skillIndex}`)}
+                      onMouseLeave={() => setHoveredSkill(null)}
+                      style={{
+                        '--skill-level': `${skill.level}%`,
+                        '--animation-delay': `${skillIndex * 0.1}s`
+                      }}
+                    >
+                      <div className="skill-header">
+                        <span className="skill-icon">{skill.icon}</span>
+                        <span className="skill-name">{skill.name}</span>
+                        <span className="skill-level">{skill.level}%</span>
+                      </div>
+                      
+                      <div className="skill-progress">
+                        <div className="progress-bar">
+                          <div className="progress-fill"></div>
+                        </div>
+                        <div className="progress-glow"></div>
+                      </div>
+
+                      <div className="skill-particles">
+                        {[...Array(5)].map((_, i) => (
+                          <div key={i} className="particle" style={{ '--particle-delay': `${i * 0.2}s` }}></div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Additional Info */}
+        <div className="skills-additional">
+          <div className="languages-section">
+            <h3 className="section-subtitle">
+              <Star size={24} />
+              Idiomas
+            </h3>
+            <div className="languages-grid">
+              {languages.map((lang, index) => (
+                <div key={index} className="language-card">
+                  <div className="language-flag">{lang.flag}</div>
+                  <div className="language-info">
+                    <h4>{lang.name}</h4>
+                    <p>{lang.level}</p>
+                  </div>
+                  <div className="language-progress">
+                    <div 
+                      className="language-progress-fill"
+                      style={{ width: `${lang.proficiency}%` }}
+                    ></div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Call to action */}
-          <motion.div
-            variants={itemVariants}
-            className="text-center mt-16"
-          >
-            <div className="glass p-8 rounded-2xl max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold text-white mb-4">
-                ¿Tienes un proyecto en mente?
-              </h3>
-              <p className="text-gray-400 mb-6">
-                Estas son solo algunas de mis habilidades. Siempre estoy aprendiendo nuevas tecnologías 
-                y adaptándome a las necesidades de cada proyecto.
-              </p>
-              <motion.a
-                href="#contact"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn btn-primary"
-              >
-                Trabajemos juntos
-              </motion.a>
+          <div className="focus-section">
+            <h3 className="section-subtitle">
+              <Target size={24} />
+              Enfoque de Desarrollo
+            </h3>
+            <div className="focus-grid">
+              {developmentFocus.map((focus, index) => (
+                <div key={index} className="focus-card">
+                  <div className="focus-icon" style={{ '--focus-color': focus.color }}>
+                    <focus.icon size={24} />
+                    <div className="focus-glow"></div>
+                  </div>
+                  <h4>{focus.title}</h4>
+                  <p>{focus.description}</p>
+                </div>
+              ))}
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
+      </div>
+
+      {/* Background Effects */}
+      <div className="skills-bg-effects">
+        <div className="floating-orbs">
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className="floating-orb" style={{ '--orb-delay': `${i * 2}s` }}></div>
+          ))}
+        </div>
       </div>
     </section>
   )

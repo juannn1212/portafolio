@@ -56,6 +56,18 @@ npm run preview
 
 El proyecto estará disponible en `http://localhost:5173`
 
+## 🌐 Despliegue
+
+### Netlify (Recomendado - Gratuito)
+1. Conecta tu repositorio de GitHub a Netlify
+2. El proyecto se desplegará automáticamente
+3. URL personalizable (ej: tu-nombre.netlify.app)
+
+### Vercel (Alternativa - Gratuito)
+1. Conecta tu repositorio de GitHub a Vercel
+2. Despliegue automático en cada push
+3. URL personalizable (ej: tu-nombre.vercel.app)
+
 ## 📁 Estructura del Proyecto
 
 ```
@@ -69,113 +81,68 @@ portafolio/
 │   │   ├── About.jsx       # Sobre mí
 │   │   ├── Projects.jsx    # Portafolio de proyectos
 │   │   ├── Skills.jsx      # Habilidades técnicas
-│   │   └── Contact.jsx     # Formulario de contacto
-│   ├── data/
-│   │   └── projects.js     # Datos de proyectos
+│   │   ├── Contact.jsx     # Formulario de contacto
+│   │   └── CustomCursor.jsx # Cursor personalizado
 │   ├── styles/
-│   │   ├── index.css       # Estilos globales
-│   │   └── App.css         # Estilos del componente principal
+│   │   ├── elegant.css     # Estilos principales
+│   │   ├── navbar.css      # Estilos del navbar
+│   │   └── index.css       # Estilos base
+│   ├── hooks/
+│   │   └── useSectionTransition.js # Hook para transiciones
 │   ├── App.jsx             # Componente principal
 │   └── main.jsx            # Punto de entrada
-├── index.html              # HTML principal
 ├── package.json
+├── vite.config.js
 └── README.md
 ```
 
-## 🎨 Personalización
+## 🎯 Uso en CV
 
-### Agregar Nuevos Proyectos
-Edita el archivo `src/data/projects.js` para agregar, modificar o eliminar proyectos:
+### Enlaces recomendados para incluir en tu CV:
+- **Portafolio**: [URL de tu despliegue]
+- **GitHub**: https://github.com/juannn1212/portafolio
+- **LinkedIn**: [Tu perfil de LinkedIn]
 
-```javascript
-export const projects = [
-  {
-    id: 1,
-    title: "Nombre del Proyecto",
-    description: "Descripción breve del proyecto",
-    image: "URL_de_la_imagen",
-    technologies: ["React", "Node.js", "MongoDB"],
-    category: "Full Stack",
-    featured: true,
-    demoUrl: "https://demo.com",
-    githubUrl: "https://github.com/usuario/proyecto",
-    details: {
-      challenge: "El desafío que resolviste",
-      solution: "Cómo lo resolviste",
-      features: ["Característica 1", "Característica 2"]
-    }
-  }
-  // ... más proyectos
-]
-```
+### Secciones destacadas:
+- **Proyectos**: Muestra tus mejores trabajos
+- **Habilidades**: Tecnologías que dominas
+- **Contacto**: Formas de contactarte profesionalmente
 
-### Modificar Información Personal
-Actualiza los siguientes archivos:
-- `src/components/Header.jsx` - Links de redes sociales
-- `src/components/Hero.jsx` - Información de presentación
-- `src/components/About.jsx` - Biografía y estadísticas
-- `src/components/Contact.jsx` - Información de contacto
+## 🔧 Personalización
 
-### Personalizar Colores y Estilos
-Las variables CSS están definidas en `src/styles/index.css`:
+### Cambiar información personal:
+1. Edita `src/components/Header.jsx` para el logo
+2. Modifica `src/components/Hero.jsx` para tu presentación
+3. Actualiza `src/components/About.jsx` con tu información
+4. Edita `src/components/Projects.jsx` con tus proyectos
+5. Modifica `src/components/Skills.jsx` con tus habilidades
 
-```css
-:root {
-  --primary-color: #6366f1;
-  --primary-dark: #4f46e5;
-  --bg-primary: #0f0f23;
-  /* ... más variables */
-}
-```
+### Cambiar colores:
+1. Edita las variables CSS en `src/styles/elegant.css`
+2. Modifica los gradientes y colores principales
+3. Ajusta el tema oscuro según tus preferencias
 
 ## 📱 Responsive Design
 
 El portafolio está optimizado para:
-- 📱 Móviles (320px+)
-- 📱 Tablets (768px+)
-- 💻 Desktop (1024px+)
-- 🖥️ Large Desktop (1440px+)
+- **Desktop**: 1200px y superior
+- **Tablet**: 768px - 1199px
+- **Móvil**: 320px - 767px
 
-## 🌟 Características Destacadas
+## 🚀 Optimizaciones
 
-### Animaciones
-- Entrada progresiva de elementos
-- Hover effects en botones y tarjetas
-- Parallax suave en el hero
-- Transiciones fluidas entre secciones
+- **Lazy Loading**: Componentes cargan según necesidad
+- **CSS Minificado**: Estilos optimizados para producción
+- **Imágenes Optimizadas**: Formato WebP y compresión
+- **SEO**: Meta tags y estructura semántica
 
-### UX/UI
-- Navegación sticky intuitiva
-- Smooth scrolling
-- Estados de carga y feedback
-- Formulario con validación en tiempo real
+## 📞 Soporte
 
-### Performance
-- Lazy loading de imágenes
-- Componentes optimizados
-- Bundle size minimizado
-- SEO friendly
-
-## 🤝 Contribuciones
-
-¡Las contribuciones son bienvenidas! Si tienes ideas para mejorar el portafolio:
-
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
-## 📧 Contacto
-
-- **Email**: juan@ejemplo.com
-- **LinkedIn**: [linkedin.com/in/juan](https://linkedin.com/in/juan)
-- **GitHub**: [github.com/juannn1212](https://github.com/juannn1212)
-
-## 📄 Licencia
-
-Este proyecto está bajo la licencia MIT. Ver el archivo `LICENSE` para más detalles.
+Si tienes alguna pregunta o necesitas ayuda:
+- **Email**: [tu-email@ejemplo.com]
+- **GitHub**: [Issues del repositorio]
+- **LinkedIn**: [Tu perfil profesional]
 
 ---
 
-⭐ Si te gusta este portafolio, ¡no olvides darle una estrella en GitHub!
+**¡Gracias por visitar mi portafolio!** 🎉

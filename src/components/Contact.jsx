@@ -1,49 +1,35 @@
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Send, 
-  Github, 
-  Linkedin, 
-  Twitter,
-  MessageCircle,
-  CheckCircle,
-  AlertCircle
-} from 'lucide-react'
+import React, { useState, useEffect } from 'react'
+import { Mail, Phone, MapPin, Github, Linkedin, MessageCircle, Zap, Send, Clock, Star, Sparkles, Target, Rocket } from 'lucide-react'
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState(null) // 'success' | 'error' | null
+  const [hoveredItem, setHoveredItem] = useState(null)
+  const [activeCard, setActiveCard] = useState(0)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   const contactInfo = [
     {
       icon: Mail,
-      title: 'Email',
-      value: 'juan@ejemplo.com',
-      href: 'mailto:juan@ejemplo.com',
-      description: 'Envíame un correo'
+      label: 'Email',
+      value: 'Juanmartinezciro657@gmail.com',
+      href: 'mailto:Juanmartinezciro657@gmail.com',
+      color: '#00d4ff',
+      description: 'Envíame un mensaje directo'
     },
     {
       icon: Phone,
-      title: 'Teléfono',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
+      label: 'Teléfono',
+      value: '301 725 1504',
+      href: 'tel:+573017251504',
+      color: '#ff6b6b',
       description: 'Llamada o WhatsApp'
     },
     {
       icon: MapPin,
-      title: 'Ubicación',
-      value: 'Ciudad, País',
+      label: 'Ubicación',
+      value: 'Medellín, Antioquia',
       href: '#',
-      description: 'Disponible remotamente'
+      color: '#51cf66',
+      description: 'Disponible para proyectos remotos'
     }
   ]
 
@@ -52,294 +38,198 @@ const Contact = () => {
       icon: Github,
       name: 'GitHub',
       href: 'https://github.com/juannn1212',
-      color: 'hover:text-gray-300'
+      description: 'Revisa mis proyectos y contribuciones',
+      color: '#333',
+      bgColor: 'rgba(51, 51, 51, 0.1)'
     },
     {
       icon: Linkedin,
       name: 'LinkedIn',
-      href: 'https://linkedin.com/in/juan',
-      color: 'hover:text-blue-400'
-    },
-    {
-      icon: Twitter,
-      name: 'Twitter',
-      href: 'https://twitter.com/juan',
-      color: 'hover:text-blue-400'
+      href: 'https://linkedin.com/in/juandavid-martinez',
+      description: 'Conectemos profesionalmente',
+      color: '#0077b5',
+      bgColor: 'rgba(0, 119, 181, 0.1)'
     },
     {
       icon: MessageCircle,
-      name: 'Discord',
-      href: '#',
-      color: 'hover:text-purple-400'
+      name: 'WhatsApp',
+      href: 'https://wa.me/573017251504',
+      description: 'Conversemos por WhatsApp',
+      color: '#25d366',
+      bgColor: 'rgba(37, 211, 102, 0.1)'
     }
   ]
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-  }
+  const availabilityStats = [
+    { icon: Clock, label: 'Respuesta', value: '< 24h', color: '#00d4ff' },
+    { icon: Star, label: 'Disponibilidad', value: '100%', color: '#ff6b6b' },
+    { icon: Target, label: 'Proyectos', value: 'Abiertos', color: '#51cf66' },
+    { icon: Rocket, label: 'Modalidad', value: 'Remoto', color: '#ae8cff' }
+  ]
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
-    try {
-      // Simular envío del formulario
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      
-      // Aquí iría la lógica real de envío del formulario
-      // Por ejemplo, usando EmailJS, Netlify Forms, o tu propia API
-      
-      setSubmitStatus('success')
-      setFormData({ name: '', email: '', subject: '', message: '' })
-    } catch (error) {
-      setSubmitStatus('error')
-    } finally {
-      setIsSubmitting(false)
-      
-      // Limpiar el estado después de 5 segundos
-      setTimeout(() => setSubmitStatus(null), 5000)
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY })
     }
-  }
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [])
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveCard((prev) => (prev + 1) % availabilityStats.length)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
-    <section id="contact" className="section-padding">
-      <div className="container mx-auto px-4">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          className="max-w-6xl mx-auto"
-        >
-          {/* Título de sección */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="text-gradient">Contacto</span>
-            </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              ¿Tienes un proyecto en mente? ¡Hablemos! Estoy disponible para nuevas oportunidades
-            </p>
-          </motion.div>
+    <section id="contact" className="section contact-section">
+      <div className="container">
+        <div className="section-header">
+          <h2>
+            <span className="gradient-text">Contacto</span>
+          </h2>
+          <p>
+            ¿Tienes una idea innovadora o quieres colaborar en proyectos revolucionarios? 
+            ¡Me encantaría escuchar sobre tu visión!
+          </p>
+        </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Información de contacto */}
-            <motion.div variants={itemVariants} className="space-y-8">
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-6">Información de contacto</h3>
-                <div className="space-y-6">
-                  {contactInfo.map((info, index) => (
-                    <motion.a
-                      key={index}
-                      href={info.href}
-                      whileHover={{ scale: 1.02, x: 5 }}
-                      className="flex items-center gap-4 p-4 glass rounded-xl hover:glass-strong transition-all duration-300 group"
-                    >
-                      <div className="p-3 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-lg group-hover:scale-110 transition-transform duration-300">
-                        <info.icon size={24} className="text-purple-400" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-white group-hover:text-purple-300 transition-colors">
-                          {info.title}
-                        </h4>
-                        <p className="text-gray-300">{info.value}</p>
-                        <p className="text-sm text-gray-500">{info.description}</p>
-                      </div>
-                    </motion.a>
-                  ))}
+        {/* Contact Info Cards */}
+        <div className="contact-grid">
+          {contactInfo.map((info, index) => (
+            <div
+              key={index}
+              className={`contact-card ${hoveredItem === index ? 'hovered' : ''}`}
+              onMouseEnter={() => setHoveredItem(index)}
+              onMouseLeave={() => setHoveredItem(null)}
+              style={{ '--card-color': info.color }}
+            >
+              <div className="contact-card-header">
+                <div className="contact-icon-wrapper">
+                  <info.icon size={28} />
+                  <div className="icon-glow"></div>
+                  <div className="icon-particles">
+                    {[...Array(3)].map((_, i) => (
+                      <div key={i} className="contact-particle" style={{ '--delay': `${i * 0.2}s` }}></div>
+                    ))}
+                  </div>
+                </div>
+                <div className="contact-info">
+                  <h3>{info.label}</h3>
+                  <p className="contact-description">{info.description}</p>
                 </div>
               </div>
-
-              {/* Redes sociales */}
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-6">Sígueme en</h3>
-                <div className="flex flex-wrap gap-4">
-                  {socialLinks.map((social, index) => (
-                    <motion.a
-                      key={index}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`flex items-center gap-3 p-4 glass rounded-xl hover:glass-strong transition-all duration-300 text-gray-400 ${social.color}`}
-                    >
-                      <social.icon size={20} />
-                      <span className="font-medium">{social.name}</span>
-                    </motion.a>
-                  ))}
-                </div>
+              <div className="contact-card-content">
+                <a href={info.href} className="contact-link">
+                  {info.value}
+                  <div className="link-arrow">
+                    <Send size={16} />
+                  </div>
+                </a>
               </div>
+              <div className="contact-card-decoration"></div>
+            </div>
+          ))}
+        </div>
 
-              {/* Disponibilidad */}
-              <motion.div
-                variants={itemVariants}
-                className="glass p-6 rounded-xl"
-              >
-                <h4 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
-                  <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse" />
-                  Disponible para proyectos
-                </h4>
-                <p className="text-gray-400 leading-relaxed">
-                  Actualmente estoy disponible para nuevos proyectos y colaboraciones. 
-                  Tiempo de respuesta promedio: <span className="text-white font-semibold">24 horas</span>
-                </p>
-              </motion.div>
-            </motion.div>
-
-            {/* Formulario de contacto */}
-            <motion.div variants={itemVariants}>
-              <div className="glass-strong p-8 rounded-2xl">
-                <h3 className="text-2xl font-bold text-white mb-6">Envíame un mensaje</h3>
-                
-                {/* Estado del formulario */}
-                {submitStatus && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className={`flex items-center gap-3 p-4 rounded-lg mb-6 ${
-                      submitStatus === 'success' 
-                        ? 'bg-green-500/20 border border-green-500/30 text-green-300'
-                        : 'bg-red-500/20 border border-red-500/30 text-red-300'
-                    }`}
-                  >
-                    {submitStatus === 'success' ? (
-                      <CheckCircle size={20} />
-                    ) : (
-                      <AlertCircle size={20} />
-                    )}
-                    <span>
-                      {submitStatus === 'success' 
-                        ? '¡Mensaje enviado correctamente! Te responderé pronto.'
-                        : 'Hubo un error al enviar el mensaje. Inténtalo de nuevo.'}
-                    </span>
-                  </motion.div>
-                )}
-
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Nombre */}
-                  <div>
-                    <label htmlFor="name" className="block text-white font-medium mb-2">
-                      Nombre *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 focus:outline-none transition-all duration-300"
-                      placeholder="Tu nombre completo"
-                    />
-                  </div>
-
-                  {/* Email */}
-                  <div>
-                    <label htmlFor="email" className="block text-white font-medium mb-2">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 focus:outline-none transition-all duration-300"
-                      placeholder="tu@email.com"
-                    />
-                  </div>
-
-                  {/* Asunto */}
-                  <div>
-                    <label htmlFor="subject" className="block text-white font-medium mb-2">
-                      Asunto *
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 focus:outline-none transition-all duration-300"
-                      placeholder="¿De qué quieres hablar?"
-                    />
-                  </div>
-
-                  {/* Mensaje */}
-                  <div>
-                    <label htmlFor="message" className="block text-white font-medium mb-2">
-                      Mensaje *
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={6}
-                      className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 focus:outline-none transition-all duration-300 resize-none"
-                      placeholder="Cuéntame sobre tu proyecto, ideas o cualquier cosa que tengas en mente..."
-                    />
-                  </div>
-
-                  {/* Botón de envío */}
-                  <motion.button
-                    type="submit"
-                    disabled={isSubmitting}
-                    whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-                    whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                    className={`w-full flex items-center justify-center gap-3 py-4 px-6 rounded-lg font-semibold transition-all duration-300 ${
-                      isSubmitting
-                        ? 'bg-gray-600 cursor-not-allowed'
-                        : 'bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 shadow-lg hover:shadow-xl'
-                    } text-white`}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" />
-                        Enviando...
-                      </>
-                    ) : (
-                      <>
-                        <Send size={20} />
-                        Enviar mensaje
-                      </>
-                    )}
-                  </motion.button>
-                </form>
-              </div>
-            </motion.div>
+        {/* Availability Stats */}
+        <div className="availability-section">
+          <div className="availability-header">
+            <h3>Disponibilidad y Respuesta</h3>
+            <p>Estoy listo para tu próximo proyecto innovador</p>
           </div>
-        </motion.div>
+          <div className="availability-grid">
+            {availabilityStats.map((stat, index) => (
+              <div
+                key={index}
+                className={`availability-card ${activeCard === index ? 'active' : ''}`}
+                style={{ '--stat-color': stat.color }}
+              >
+                <div className="availability-icon">
+                  <stat.icon size={24} />
+                  <div className="availability-glow"></div>
+                </div>
+                <div className="availability-content">
+                  <div className="availability-value">{stat.value}</div>
+                  <div className="availability-label">{stat.label}</div>
+                </div>
+                <div className="availability-particles">
+                  {[...Array(2)].map((_, i) => (
+                    <div key={i} className="availability-particle" style={{ '--delay': `${i * 0.3}s` }}></div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Social Links */}
+        <div className="social-section">
+          <div className="social-header">
+            <h3>Sígueme en redes sociales</h3>
+            <p>Conectemos y compartamos ideas innovadoras</p>
+          </div>
+          <div className="social-grid">
+            {socialLinks.map((social, index) => (
+              <a
+                key={index}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`social-card ${hoveredItem === `social-${index}` ? 'hovered' : ''}`}
+                onMouseEnter={() => setHoveredItem(`social-${index}`)}
+                onMouseLeave={() => setHoveredItem(null)}
+                style={{ '--social-color': social.color, '--social-bg': social.bgColor }}
+              >
+                <div className="social-icon-wrapper">
+                  <social.icon size={32} />
+                  <div className="social-glow"></div>
+                </div>
+                <div className="social-content">
+                  <h4>{social.name}</h4>
+                  <p>{social.description}</p>
+                </div>
+                <div className="social-decoration">
+                  <Sparkles size={16} />
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="cta-section">
+          <div className="cta-card">
+            <div className="cta-header">
+              <div className="cta-icon">
+                <Rocket size={40} />
+                <div className="cta-glow"></div>
+              </div>
+              <h3>¡Creemos algo increíble juntos!</h3>
+              <p>
+                Ya sea que necesites un desarrollador web, móvil o full stack para tu 
+                próximo proyecto innovador, estoy aquí para ayudarte a hacer realidad 
+                tu visión y crear experiencias digitales que marquen la diferencia.
+              </p>
+            </div>
+            <div className="cta-actions">
+              <a href="mailto:Juanmartinezciro657@gmail.com" className="cta-btn primary">
+                <Zap size={20} />
+                Iniciar proyecto
+              </a>
+              <a href="tel:+573017251504" className="cta-btn secondary">
+                <Phone size={20} />
+                Llamar ahora
+              </a>
+            </div>
+            <div className="cta-particles">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className="cta-particle" style={{ '--delay': `${i * 0.2}s` }}></div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )
