@@ -1598,11 +1598,46 @@ header.scrolled {
   clear: both !important;
   position: relative !important;
   z-index: 1 !important;
+  overflow: hidden !important;
+}
+
+/* Hide any unwanted elements that might be appearing */
+.skills-additional *:not(.languages-section):not(.focus-section):not(.section-subtitle):not(.languages-grid):not(.language-card):not(.language-flag):not(.language-info):not(.language-info h4):not(.language-info p):not(.language-progress):not(.language-progress-fill):not(.focus-grid):not(.focus-card):not(.focus-icon):not(.focus-glow):not(.focus-card h4):not(.focus-card p) {
+  display: none !important;
+}
+
+/* Additional cleanup for any stray elements */
+.skills-additional .skill-item,
+.skills-additional .category-header,
+.skills-additional .category-icon,
+.skills-additional .category-title,
+.skills-additional .skills-grid {
+  display: none !important;
+}
+
+/* Ensure proper spacing and layout */
+.skills-additional {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+}
+
+.languages-section,
+.focus-section {
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 .languages-section {
   margin-bottom: 50px !important;
   clear: both !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Ensure only language cards are visible */
+.languages-section > *:not(.section-subtitle):not(.languages-grid) {
+  display: none !important;
 }
 
 .section-subtitle {
@@ -1681,6 +1716,13 @@ header.scrolled {
 .focus-section {
   margin-bottom: 30px !important;
   clear: both !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Ensure only focus cards are visible */
+.focus-section > *:not(.section-subtitle):not(.focus-grid) {
+  display: none !important;
 }
 
 .focus-grid {
