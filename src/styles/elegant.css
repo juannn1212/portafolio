@@ -1592,21 +1592,68 @@ header.scrolled {
 
 /* ========== SKILLS ADDITIONAL SECTIONS - COMPLETELY SEPARATED ========== */
 .skills-additional {
-  margin-top: 60px !important;
-  padding-top: 40px !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  margin-top: 80px !important;
+  padding-top: 60px !important;
+  border-top: 2px solid rgba(99, 102, 241, 0.3) !important;
   clear: both !important;
   position: relative !important;
   z-index: 1 !important;
-  overflow: hidden !important;
+  overflow: visible !important;
+  background: linear-gradient(180deg, transparent 0%, rgba(99, 102, 241, 0.05) 100%) !important;
 }
 
-/* Hide any unwanted elements that might be appearing */
-.skills-additional *:not(.languages-section):not(.focus-section):not(.section-subtitle):not(.languages-grid):not(.language-card):not(.language-flag):not(.language-info):not(.language-info h4):not(.language-info p):not(.language-progress):not(.language-progress-fill):not(.focus-grid):not(.focus-card):not(.focus-icon):not(.focus-glow):not(.focus-card h4):not(.focus-card p) {
-  display: none !important;
+/* Complete separation of sections */
+.languages-section {
+  margin-bottom: 80px !important;
+  padding: 40px !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(99, 102, 241, 0.2) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(10px) !important;
+  position: relative !important;
+  z-index: 2 !important;
 }
 
-/* Additional cleanup for any stray elements */
+.languages-section::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -2px !important;
+  left: -2px !important;
+  right: -2px !important;
+  bottom: -2px !important;
+  background: linear-gradient(45deg, #6366f1, #8b5cf6, #6366f1) !important;
+  border-radius: 20px !important;
+  z-index: -1 !important;
+  opacity: 0.3 !important;
+}
+
+.focus-section {
+  margin-bottom: 40px !important;
+  padding: 40px !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(99, 102, 241, 0.2) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(10px) !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.focus-section::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -2px !important;
+  left: -2px !important;
+  right: -2px !important;
+  bottom: -2px !important;
+  background: linear-gradient(45deg, #8b5cf6, #6366f1, #8b5cf6) !important;
+  border-radius: 20px !important;
+  z-index: -1 !important;
+  opacity: 0.3 !important;
+}
+
+/* Hide any unwanted elements */
 .skills-additional .skill-item,
 .skills-additional .category-header,
 .skills-additional .category-icon,
@@ -1619,7 +1666,7 @@ header.scrolled {
 .skills-additional {
   display: flex !important;
   flex-direction: column !important;
-  gap: 0 !important;
+  gap: 40px !important;
 }
 
 .languages-section,
@@ -1659,15 +1706,21 @@ header.scrolled {
 }
 
 .language-card {
-  background: rgba(255, 255, 255, 0.05) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 12px !important;
-  padding: 20px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(99, 102, 241, 0.3) !important;
+  border-radius: 16px !important;
+  padding: 24px !important;
   display: flex !important;
   align-items: center !important;
-  gap: 16px !important;
+  gap: 20px !important;
   transition: all 0.3s ease !important;
   clear: both !important;
+  margin-bottom: 16px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.language-card:last-child {
+  margin-bottom: 0 !important;
 }
 
 .language-card:hover {
@@ -1733,13 +1786,19 @@ header.scrolled {
 }
 
 .focus-card {
-  background: rgba(255, 255, 255, 0.05) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 12px !important;
-  padding: 24px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(99, 102, 241, 0.3) !important;
+  border-radius: 16px !important;
+  padding: 28px !important;
   text-align: center !important;
   transition: all 0.3s ease !important;
   clear: both !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.focus-card:last-child {
+  margin-bottom: 0 !important;
 }
 
 .focus-card:hover {
