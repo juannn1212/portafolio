@@ -1590,67 +1590,29 @@ header.scrolled {
   opacity: 1;
 }
 
-/* ========== SKILLS ADDITIONAL SECTIONS - COMPLETELY SEPARATED ========== */
+/* ========== SKILLS ADDITIONAL SECTIONS - SIMPLIFIED ========== */
 .skills-additional {
-  margin-top: 80px !important;
-  padding-top: 60px !important;
-  border-top: 2px solid rgba(99, 102, 241, 0.3) !important;
+  margin-top: 60px !important;
+  padding-top: 40px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
   clear: both !important;
-  position: relative !important;
-  z-index: 1 !important;
-  overflow: visible !important;
-  background: linear-gradient(180deg, transparent 0%, rgba(99, 102, 241, 0.05) 100%) !important;
 }
 
-/* Complete separation of sections */
+/* Simple section separation */
 .languages-section {
-  margin-bottom: 80px !important;
-  padding: 40px !important;
-  background: rgba(255, 255, 255, 0.03) !important;
-  border: 1px solid rgba(99, 102, 241, 0.2) !important;
-  border-radius: 20px !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
-  backdrop-filter: blur(10px) !important;
-  position: relative !important;
-  z-index: 2 !important;
-}
-
-.languages-section::before {
-  content: '' !important;
-  position: absolute !important;
-  top: -2px !important;
-  left: -2px !important;
-  right: -2px !important;
-  bottom: -2px !important;
-  background: linear-gradient(45deg, #6366f1, #8b5cf6, #6366f1) !important;
-  border-radius: 20px !important;
-  z-index: -1 !important;
-  opacity: 0.3 !important;
+  margin-bottom: 50px !important;
+  padding: 30px !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
 }
 
 .focus-section {
-  margin-bottom: 40px !important;
-  padding: 40px !important;
-  background: rgba(255, 255, 255, 0.03) !important;
-  border: 1px solid rgba(99, 102, 241, 0.2) !important;
-  border-radius: 20px !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
-  backdrop-filter: blur(10px) !important;
-  position: relative !important;
-  z-index: 2 !important;
-}
-
-.focus-section::before {
-  content: '' !important;
-  position: absolute !important;
-  top: -2px !important;
-  left: -2px !important;
-  right: -2px !important;
-  bottom: -2px !important;
-  background: linear-gradient(45deg, #8b5cf6, #6366f1, #8b5cf6) !important;
-  border-radius: 20px !important;
-  z-index: -1 !important;
-  opacity: 0.3 !important;
+  margin-bottom: 30px !important;
+  padding: 30px !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
 }
 
 /* Hide any unwanted elements */
@@ -1706,17 +1668,15 @@ header.scrolled {
 }
 
 .language-card {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border: 1px solid rgba(99, 102, 241, 0.3) !important;
-  border-radius: 16px !important;
-  padding: 24px !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  padding: 16px !important;
   display: flex !important;
   align-items: center !important;
-  gap: 20px !important;
-  transition: all 0.3s ease !important;
-  clear: both !important;
-  margin-bottom: 16px !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+  gap: 16px !important;
+  transition: all 0.2s ease !important;
+  margin-bottom: 12px !important;
 }
 
 .language-card:last-child {
@@ -1786,15 +1746,13 @@ header.scrolled {
 }
 
 .focus-card {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border: 1px solid rgba(99, 102, 241, 0.3) !important;
-  border-radius: 16px !important;
-  padding: 28px !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  padding: 20px !important;
   text-align: center !important;
-  transition: all 0.3s ease !important;
-  clear: both !important;
-  margin-bottom: 20px !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+  transition: all 0.2s ease !important;
+  margin-bottom: 16px !important;
 }
 
 .focus-card:last-child {
@@ -5363,27 +5321,24 @@ header.scrolled {
 /* ========== SKILLS SECTION FIXES ========== */
 .skills-grid {
   display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-  gap: 20px !important;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+  gap: 16px !important;
 }
 
 .skill-item {
-  background: rgba(255, 255, 255, 0.05) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 12px !important;
-  padding: 20px !important;
-  transition: all 0.3s ease !important;
+  border-radius: 8px !important;
+  padding: 16px !important;
+  transition: all 0.2s ease !important;
   display: flex !important;
   flex-direction: column !important;
-  gap: 16px !important;
-  position: relative !important;
-  overflow: hidden !important;
+  gap: 12px !important;
 }
 
 .skill-item:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
-  border-color: rgba(99, 102, 241, 0.5) !important;
-  transform: translateY(-2px) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(99, 102, 241, 0.3) !important;
 }
 
 .skill-header {

@@ -113,58 +113,40 @@
 /* Botón del menú móvil */
 .mobile-menu-btn {
   display: block !important;
-  background: rgba(99, 102, 241, 0.15) !important;
-  border: 2px solid rgba(99, 102, 241, 0.3) !important;
+  background: none !important;
+  border: none !important;
   color: #ffffff !important;
   cursor: pointer !important;
-  padding: 12px !important;
-  border-radius: 12px !important;
-  transition: all 0.3s ease !important;
-  width: 48px !important;
-  height: 48px !important;
+  padding: 8px !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+  width: 40px !important;
+  height: 40px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  backdrop-filter: blur(10px) !important;
 }
 
 .mobile-menu-btn:hover {
-  color: #ffffff !important;
-  background: rgba(99, 102, 241, 0.25) !important;
-  border-color: rgba(99, 102, 241, 0.5) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3) !important;
+  color: #6366f1 !important;
+  background: rgba(99, 102, 241, 0.1) !important;
 }
 
 /* Menú móvil */
 .mobile-menu {
   display: none !important;
-  background: rgba(10, 10, 10, 0.95) !important;
-  backdrop-filter: blur(20px) !important;
-  border-top: 2px solid rgba(99, 102, 241, 0.3) !important;
+  background: #0a0a0a !important;
+  border-top: 1px solid #333333 !important;
   padding: 0 !important;
   position: absolute !important;
   top: 100% !important;
   left: 0 !important;
   right: 0 !important;
   z-index: 1000 !important;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important;
-  animation: slideDown 0.3s ease-out !important;
 }
 
 .mobile-menu.open {
   display: block !important;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0 !important;
-    transform: translateY(-20px) !important;
-  }
-  to {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-  }
 }
 
 .mobile-nav-links {
@@ -180,36 +162,18 @@
 
 .mobile-nav-link {
   display: block !important;
-  color: #ffffff !important;
+  color: #cccccc !important;
   text-decoration: none !important;
-  padding: 20px 24px !important;
-  font-weight: 600 !important;
+  padding: 16px 24px !important;
+  font-weight: 500 !important;
   font-size: 16px !important;
-  border-bottom: 1px solid rgba(99, 102, 241, 0.2) !important;
-  transition: all 0.3s ease !important;
-  position: relative !important;
-  overflow: hidden !important;
-}
-
-.mobile-nav-link::before {
-  content: '' !important;
-  position: absolute !important;
-  left: 0 !important;
-  top: 0 !important;
-  width: 0 !important;
-  height: 100% !important;
-  background: linear-gradient(90deg, rgba(99, 102, 241, 0.1), transparent) !important;
-  transition: width 0.3s ease !important;
+  border-bottom: 1px solid #333333 !important;
+  transition: all 0.2s ease !important;
 }
 
 .mobile-nav-link:hover {
   color: #ffffff !important;
-  background: rgba(99, 102, 241, 0.15) !important;
-  padding-left: 32px !important;
-}
-
-.mobile-nav-link:hover::before {
-  width: 100% !important;
+  background: rgba(99, 102, 241, 0.1) !important;
 }
 
 .mobile-social-links {
