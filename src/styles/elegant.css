@@ -5319,6 +5319,11 @@ header.scrolled {
 /* ========== CORRECCIONES RESPONSIVE PARA SKILLS Y ABOUT ========== */
 
 /* ========== SKILLS SECTION FIXES ========== */
+.skills-section {
+  min-height: 100vh !important;
+  padding: 100px 0 80px 0 !important;
+}
+
 .skills-grid {
   display: grid !important;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
@@ -5494,6 +5499,28 @@ header.scrolled {
   .skills-additional {
     display: none !important;
   }
+  
+  /* Fix section height and spacing for mobile */
+  .skills-section {
+    min-height: 80vh !important;
+    padding: 80px 0 60px 0 !important;
+  }
+  
+  .skills-display-container {
+    margin-bottom: 40px !important;
+  }
+  
+  .skills-categories-nav {
+    margin-bottom: 40px !important;
+  }
+  
+  .skill-item {
+    min-height: 120px !important;
+  }
+  
+  .tech-category {
+    min-height: 100px !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -5525,6 +5552,28 @@ header.scrolled {
   /* Hide additional sections on mobile */
   .skills-additional {
     display: none !important;
+  }
+  
+  /* Additional mobile height fixes */
+  .skills-section {
+    min-height: 70vh !important;
+    padding: 70px 0 50px 0 !important;
+  }
+  
+  .skill-item {
+    min-height: 100px !important;
+  }
+  
+  .tech-category {
+    min-height: 80px !important;
+  }
+  
+  .skills-categories-nav {
+    margin-bottom: 30px !important;
+  }
+  
+  .skills-display-container {
+    margin-bottom: 30px !important;
   }
 }
 
