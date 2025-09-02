@@ -5489,6 +5489,11 @@ header.scrolled {
   .tech-list {
     justify-content: center !important;
   }
+  
+  /* Hide additional sections on tablet and mobile */
+  .skills-additional {
+    display: none !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -5517,47 +5522,9 @@ header.scrolled {
     padding: 4px 8px !important;
   }
   
-  /* Additional sections mobile fixes */
+  /* Hide additional sections on mobile */
   .skills-additional {
-    margin-top: 40px !important;
-    padding-top: 30px !important;
-  }
-  
-  .languages-section {
-    margin-bottom: 30px !important;
-  }
-  
-  .section-subtitle {
-    font-size: 20px !important;
-    margin-bottom: 20px !important;
-  }
-  
-  .languages-grid {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-  
-  .language-card {
-    padding: 16px !important;
-  }
-  
-  .focus-grid {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-  
-  .focus-card {
-    padding: 20px !important;
-  }
-  
-  .focus-icon {
-    width: 48px !important;
-    height: 48px !important;
-    margin-bottom: 16px !important;
-  }
-  
-  .focus-card h4 {
-    font-size: 16px !important;
+    display: none !important;
   }
 }
 
