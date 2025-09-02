@@ -5321,7 +5321,29 @@ header.scrolled {
 /* ========== SKILLS SECTION FIXES ========== */
 .skills-section {
   min-height: 100vh !important;
-  padding: 100px 0 80px 0 !important;
+  padding: 120px 0 100px 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+}
+
+.skills-display-container {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  min-height: 60vh !important;
+  width: 100% !important;
+}
+
+.skills-categories-nav {
+  margin-bottom: 40px !important;
+  width: 100% !important;
+}
+
+.skills-display {
+  flex: 1 !important;
+  width: 100% !important;
 }
 
 .skills-grid {
@@ -5502,24 +5524,29 @@ header.scrolled {
   
   /* Fix section height and spacing for mobile */
   .skills-section {
-    min-height: 80vh !important;
-    padding: 80px 0 60px 0 !important;
+    min-height: 90vh !important;
+    padding: 100px 0 80px 0 !important;
   }
   
   .skills-display-container {
-    margin-bottom: 40px !important;
+    margin-bottom: 60px !important;
+    min-height: 50vh !important;
   }
   
   .skills-categories-nav {
-    margin-bottom: 40px !important;
+    margin-bottom: 50px !important;
   }
   
   .skill-item {
-    min-height: 120px !important;
+    min-height: 140px !important;
   }
   
   .tech-category {
-    min-height: 100px !important;
+    min-height: 120px !important;
+  }
+  
+  .section-header {
+    margin-bottom: 40px !important;
   }
 }
 
@@ -5556,23 +5583,28 @@ header.scrolled {
   
   /* Additional mobile height fixes */
   .skills-section {
-    min-height: 70vh !important;
-    padding: 70px 0 50px 0 !important;
+    min-height: 85vh !important;
+    padding: 80px 0 60px 0 !important;
   }
   
   .skill-item {
-    min-height: 100px !important;
+    min-height: 120px !important;
   }
   
   .tech-category {
-    min-height: 80px !important;
+    min-height: 100px !important;
   }
   
   .skills-categories-nav {
-    margin-bottom: 30px !important;
+    margin-bottom: 40px !important;
   }
   
   .skills-display-container {
+    margin-bottom: 50px !important;
+    min-height: 45vh !important;
+  }
+  
+  .section-header {
     margin-bottom: 30px !important;
   }
 }
