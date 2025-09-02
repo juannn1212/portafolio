@@ -5517,36 +5517,9 @@ header.scrolled {
     justify-content: center !important;
   }
   
-  /* Hide additional sections on tablet and mobile */
-  .skills-additional {
-    display: none !important;
-  }
-  
-  /* Fix section height and spacing for mobile */
+  /* Hide entire skills section on tablet and mobile */
   .skills-section {
-    min-height: 90vh !important;
-    padding: 100px 0 80px 0 !important;
-  }
-  
-  .skills-display-container {
-    margin-bottom: 60px !important;
-    min-height: 50vh !important;
-  }
-  
-  .skills-categories-nav {
-    margin-bottom: 50px !important;
-  }
-  
-  .skill-item {
-    min-height: 140px !important;
-  }
-  
-  .tech-category {
-    min-height: 120px !important;
-  }
-  
-  .section-header {
-    margin-bottom: 40px !important;
+    display: none !important;
   }
 }
 
@@ -5576,36 +5549,9 @@ header.scrolled {
     padding: 4px 8px !important;
   }
   
-  /* Hide additional sections on mobile */
-  .skills-additional {
-    display: none !important;
-  }
-  
-  /* Additional mobile height fixes */
+  /* Hide entire skills section on mobile */
   .skills-section {
-    min-height: 85vh !important;
-    padding: 80px 0 60px 0 !important;
-  }
-  
-  .skill-item {
-    min-height: 120px !important;
-  }
-  
-  .tech-category {
-    min-height: 100px !important;
-  }
-  
-  .skills-categories-nav {
-    margin-bottom: 40px !important;
-  }
-  
-  .skills-display-container {
-    margin-bottom: 50px !important;
-    min-height: 45vh !important;
-  }
-  
-  .section-header {
-    margin-bottom: 30px !important;
+    display: none !important;
   }
 }
 
