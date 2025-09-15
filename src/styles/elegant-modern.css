@@ -50,6 +50,8 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
   font-size: 16px;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 
 /* ========== ELEGANT NAVIGATION ========== */
@@ -553,8 +555,8 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
   .tech-cube-container {
-    max-width: 280px;
-    height: 220px;
+    max-width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -563,74 +565,103 @@ body {
     margin: 0 auto;
   }
   
+  /* Simplificar el cubo 3D para móviles - solo mostrar una cara */
   .tech-cube {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     margin-bottom: 1rem;
+    transform-style: flat;
   }
   
   .cube-face {
-    width: 60px;
-    height: 60px;
-    border-radius: 10px;
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+    position: relative;
+    transform: none !important;
+    background: var(--gradient-accent);
+    border: 2px solid var(--accent-primary);
+    box-shadow: var(--shadow-glow);
   }
   
-  .cube-face.front { transform: rotateY(0deg) translateZ(30px); }
-  .cube-face.back { transform: rotateY(180deg) translateZ(30px); }
-  .cube-face.right { transform: rotateY(90deg) translateZ(30px); }
-  .cube-face.left { transform: rotateY(-90deg) translateZ(30px); }
-  .cube-face.top { transform: rotateX(90deg) translateZ(30px); }
-  .cube-face.bottom { transform: rotateX(-90deg) translateZ(30px); }
+  /* Solo mostrar la cara frontal */
+  .cube-face.front { 
+    display: flex; 
+    transform: none !important;
+  }
+  
+  .cube-face.back,
+  .cube-face.right,
+  .cube-face.left,
+  .cube-face.top,
+  .cube-face.bottom {
+    display: none;
+  }
   
   .tech-logo {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   
   .face-content span {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
+    color: white;
+    font-weight: 700;
   }
   
-  /* Simplificar tecnologías orbitales para móvil */
+  /* Simplificar tecnologías orbitales para móvil - grid simple */
   .orbital-techs {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
     width: 100%;
-    max-width: 250px;
+    max-width: 280px;
     position: relative;
     top: auto;
     left: auto;
     height: auto;
+    margin-top: 1rem;
   }
   
   .orbit-tech {
     position: relative;
-    padding: 0.4rem 0.5rem;
-    font-size: 0.6rem;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.7rem;
     margin: 0;
     animation: none;
     transform: none;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    backdrop-filter: blur(15px);
+    box-shadow: var(--shadow-medium);
+    transition: var(--transition);
   }
   
   .orbit-tech:hover {
-    transform: translateY(-2px) scale(1.05);
+    transform: translateY(-3px) scale(1.05);
+    background: var(--accent-primary);
+    color: white;
+    box-shadow: var(--shadow-glow);
   }
   
   .orbit-icon {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   
-  /* Ocultar algunas tecnologías orbitales en móvil */
-  .orbit-5, .orbit-6, .orbit-7, .orbit-8 {
+  /* Mostrar solo las tecnologías más importantes */
+  .orbit-1, .orbit-2, .orbit-3, .orbit-4, .orbit-5, .orbit-6 {
+    display: flex;
+  }
+  
+  .orbit-7, .orbit-8 {
     display: none;
   }
   
-  /* Simplificar conexiones */
+  /* Ocultar efectos complejos */
   .cube-connections {
     display: none;
   }
   
-  /* Simplificar efectos de fondo */
   .cube-bg-effects {
     display: none;
   }
@@ -640,7 +671,7 @@ body {
   .hero-container {
     padding: 1.5rem 0.5rem 2.5rem 0.5rem;
     gap: 1.2rem;
-    min-height: 100vh;
+    min-height: 85vh;
   }
   
   .hero-name {
@@ -670,57 +701,76 @@ body {
   }
   
   .tech-cube-container {
-    max-width: 240px;
-    height: 180px;
+    max-width: 100%;
+    height: auto;
     padding: 0.8rem;
     margin: 0 auto 0.5rem auto;
   }
   
   .tech-cube {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     margin-bottom: 0.8rem;
   }
   
   .cube-face {
-    width: 50px;
-    height: 50px;
-    border-radius: 8px;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
   }
   
-  .cube-face.front { transform: rotateY(0deg) translateZ(25px); }
-  .cube-face.back { transform: rotateY(180deg) translateZ(25px); }
-  .cube-face.right { transform: rotateY(90deg) translateZ(25px); }
-  .cube-face.left { transform: rotateY(-90deg) translateZ(25px); }
-  .cube-face.top { transform: rotateX(90deg) translateZ(25px); }
-  .cube-face.bottom { transform: rotateX(-90deg) translateZ(25px); }
-  
   .tech-logo {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
   }
   
   .face-content span {
-    font-size: 0.5rem;
-  }
-  
-  .orbital-techs {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.4rem;
-    max-width: 200px;
-  }
-  
-  .orbit-tech {
-    padding: 0.3rem 0.4rem;
-    font-size: 0.55rem;
-  }
-  
-  .orbit-icon {
     font-size: 0.7rem;
   }
   
-  /* Ocultar más tecnologías en pantallas muy pequeñas */
-  .orbit-4 {
+  .orbital-techs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+    max-width: 200px;
+    margin-top: 0.8rem;
+  }
+  
+  .orbit-tech {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.6rem;
+  }
+  
+  .orbit-icon {
+    font-size: 0.8rem;
+  }
+  
+  /* Mostrar solo 4 tecnologías en pantallas muy pequeñas */
+  .orbit-1, .orbit-2, .orbit-3, .orbit-4 {
+    display: flex;
+  }
+  
+  .orbit-5, .orbit-6, .orbit-7, .orbit-8 {
     display: none;
+  }
+}
+
+/* ========== MOBILE SCROLL FIXES ========== */
+@media (max-width: 768px) {
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+  }
+  
+  .elegant-app {
+    -webkit-overflow-scrolling: touch;
   }
 }
 
@@ -1282,7 +1332,7 @@ body {
     text-align: center;
     padding: 2rem 1rem 3rem 1rem;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 90vh;
     gap: 1.5rem;
     justify-content: center;
   }
@@ -1453,6 +1503,14 @@ body {
   z-index: -1;
   background: var(--gradient-primary);
   will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .parallax-bg {
+    position: absolute;
+    height: 100%;
+    will-change: auto;
+  }
 }
 
 .parallax-bg::before {
