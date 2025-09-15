@@ -204,16 +204,40 @@ body {
 }
 
 .hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 600px;
+  padding-right: 2rem;
+  min-height: 400px;
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 1s ease-out 0.3s forwards;
 }
 
 .hero-greeting {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  margin-bottom: 0.5rem;
-  font-weight: 400;
+  font-size: 2.5rem !important;
+  color: #00d4ff !important;
+  margin-bottom: 1.5rem;
+  font-weight: 900 !important;
+  opacity: 1 !important;
+  text-shadow: 0 0 30px #00d4ff, 0 0 60px #00d4ff, 0 0 90px #00d4ff !important;
+  animation: fadeInUp 1s ease-out 0.2s both;
+  letter-spacing: 2px !important;
+  background: linear-gradient(45deg, #00d4ff, #0ea5e9) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: brightness(1.5) !important;
+  min-height: 3rem !important;
+  display: block !important;
+  line-height: 1.2 !important;
+  position: relative !important;
+  z-index: 100 !important;
+  text-transform: uppercase !important;
 }
 
 .hero-name {
@@ -554,223 +578,282 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  /* Ocultar completamente el elemento 3D en móviles */
   .tech-cube-container {
-    max-width: 100%;
-    height: auto;
+    display: none !important;
+  }
+  
+  .hero-visual {
+    display: none !important;
+  }
+  
+  /* Hero móvil mejorado */
+  .hero-elegant {
+    background: linear-gradient(135deg, 
+      rgba(0, 212, 255, 0.1) 0%, 
+      rgba(139, 92, 246, 0.1) 50%, 
+      rgba(0, 212, 255, 0.05) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero-elegant::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    animation: mobileBgFloat 15s ease-in-out infinite;
+  }
+  
+  @keyframes mobileBgFloat {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+    50% { transform: scale(1.1) rotate(2deg); opacity: 0.8; }
+  }
+  
+  .hero-container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 3rem 1.5rem 2rem 1.5rem;
+    flex-direction: column;
+    min-height: 100vh;
+    gap: 2rem;
+    justify-content: center;
+    background: rgba(15, 15, 35, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 0 0 30px 30px;
+    margin: 0 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .hero-content {
+    order: 1;
+    flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    padding: 1rem;
-    margin: 0 auto;
-  }
-  
-  /* Simplificar el cubo 3D para móviles - solo mostrar una cara */
-  .tech-cube {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 1rem;
-    transform-style: flat;
-  }
-  
-  .cube-face {
-    width: 80px;
-    height: 80px;
-    border-radius: 15px;
-    position: relative;
-    transform: none !important;
-    background: var(--gradient-accent);
-    border: 2px solid var(--accent-primary);
-    box-shadow: var(--shadow-glow);
-  }
-  
-  /* Solo mostrar la cara frontal */
-  .cube-face.front { 
-    display: flex; 
-    transform: none !important;
-  }
-  
-  .cube-face.back,
-  .cube-face.right,
-  .cube-face.left,
-  .cube-face.top,
-  .cube-face.bottom {
-    display: none;
-  }
-  
-  .tech-logo {
-    font-size: 1.5rem;
-  }
-  
-  .face-content span {
-    font-size: 0.8rem;
-    color: white;
-    font-weight: 700;
-  }
-  
-  /* Simplificar tecnologías orbitales para móvil - grid simple */
-  .orbital-techs {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.8rem;
+    align-items: center;
+    text-align: center;
     width: 100%;
-    max-width: 280px;
-    position: relative;
-    top: auto;
-    left: auto;
-    height: auto;
-    margin-top: 1rem;
+    padding: 2rem 1rem;
+    background: rgba(26, 26, 46, 0.6);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
   }
   
-  .orbit-tech {
-    position: relative;
-    padding: 0.6rem 0.8rem;
-    font-size: 0.7rem;
-    margin: 0;
-    animation: none;
-    transform: none;
-    background: var(--bg-card);
-    border: 1px solid var(--border-light);
-    border-radius: 12px;
-    backdrop-filter: blur(15px);
-    box-shadow: var(--shadow-medium);
-    transition: var(--transition);
+  .hero-greeting {
+    font-size: 1.1rem;
+    color: var(--accent-primary);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
   }
   
-  .orbit-tech:hover {
-    transform: translateY(-3px) scale(1.05);
+  .hero-name {
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  }
+  
+  .hero-title {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-secondary);
+    text-shadow: 0 0 10px rgba(14, 165, 233, 0.3);
+  }
+  
+  .hero-description {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    max-width: 90%;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 0;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    max-width: 250px;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .btn-primary {
+    background: var(--gradient-accent);
+    border: none;
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+  }
+  
+  .btn-secondary {
+    background: rgba(26, 26, 46, 0.8);
+    border: 2px solid var(--accent-primary);
+    color: var(--accent-primary);
+  }
+  
+  .btn-secondary:hover {
     background: var(--accent-primary);
     color: white;
-    box-shadow: var(--shadow-glow);
-  }
-  
-  .orbit-icon {
-    font-size: 1rem;
-  }
-  
-  /* Mostrar solo las tecnologías más importantes */
-  .orbit-1, .orbit-2, .orbit-3, .orbit-4, .orbit-5, .orbit-6 {
-    display: flex;
-  }
-  
-  .orbit-7, .orbit-8 {
-    display: none;
-  }
-  
-  /* Ocultar efectos complejos */
-  .cube-connections {
-    display: none;
-  }
-  
-  .cube-bg-effects {
-    display: none;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
   }
 }
 
 @media (max-width: 480px) {
   .hero-container {
-    padding: 1.5rem 0.5rem 2.5rem 0.5rem;
-    gap: 1.2rem;
-    min-height: 85vh;
+    padding: 2rem 1rem 1.5rem 1rem;
+    gap: 1.5rem;
+    min-height: 100vh;
+    margin: 0 0.5rem;
+    border-radius: 0 0 20px 20px;
+  }
+  
+  .hero-content {
+    padding: 1.5rem 0.8rem;
+    border-radius: 15px;
+  }
+  
+  .hero-greeting {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+    text-shadow: 0 0 12px rgba(0, 212, 255, 0.5);
   }
   
   .hero-name {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
+    margin-bottom: 0.6rem;
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
   }
   
   .hero-title {
     font-size: 1rem;
+    margin-bottom: 1.2rem;
+    text-shadow: 0 0 8px rgba(14, 165, 233, 0.4);
   }
   
   .hero-description {
-    font-size: 0.85rem;
-    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    max-width: 95%;
   }
   
   .hero-actions {
     flex-direction: column;
-    gap: 0.6rem;
-    margin-top: 0.3rem;
+    gap: 0.8rem;
+    margin-top: 0;
+    align-items: center;
+    width: 100%;
   }
   
   .btn-primary, .btn-secondary {
     width: 100%;
-    max-width: 180px;
-    padding: 0.6rem 1rem;
-    font-size: 0.8rem;
-  }
-  
-  .tech-cube-container {
-    max-width: 100%;
-    height: auto;
-    padding: 0.8rem;
-    margin: 0 auto 0.5rem auto;
-  }
-  
-  .tech-cube {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 0.8rem;
-  }
-  
-  .cube-face {
-    width: 60px;
-    height: 60px;
+    max-width: 220px;
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
     border-radius: 12px;
   }
   
-  .tech-logo {
-    font-size: 1.2rem;
+  /* Ocultar completamente el elemento 3D en móviles pequeños */
+  .tech-cube-container {
+    display: none !important;
   }
   
-  .face-content span {
-    font-size: 0.7rem;
+  .hero-visual {
+    display: none !important;
+  }
+}
+
+/* ========== LARGE SCREEN STYLES ========== */
+@media (min-width: 1200px) {
+  .hero-greeting {
+    font-size: 3rem !important;
+    margin-bottom: 1.8rem;
+    text-shadow: 0 0 40px #00d4ff, 0 0 80px #00d4ff, 0 0 120px #00d4ff !important;
+    letter-spacing: 3px !important;
+    filter: brightness(1.5) !important;
+    min-height: 3.5rem !important;
   }
   
-  .orbital-techs {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.6rem;
-    max-width: 200px;
-    margin-top: 0.8rem;
+  .hero-name {
+    font-size: clamp(3rem, 5vw, 4.5rem);
   }
   
-  .orbit-tech {
-    padding: 0.5rem 0.6rem;
-    font-size: 0.6rem;
+  .hero-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* ========== TABLET STYLES ========== */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .hero-greeting {
+    font-size: 2.2rem !important;
+    margin-bottom: 1.2rem;
+    text-shadow: 0 0 25px #00d4ff, 0 0 50px #00d4ff, 0 0 75px #00d4ff !important;
+    letter-spacing: 2px !important;
+    filter: brightness(1.4) !important;
+    min-height: 2.8rem !important;
   }
   
-  .orbit-icon {
-    font-size: 0.8rem;
+  .hero-name {
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
   }
   
-  /* Mostrar solo 4 tecnologías en pantallas muy pequeñas */
-  .orbit-1, .orbit-2, .orbit-3, .orbit-4 {
-    display: flex;
+  .hero-title {
+    font-size: 1.3rem;
   }
-  
-  .orbit-5, .orbit-6, .orbit-7, .orbit-8 {
-    display: none;
+}
+
+/* ========== ZOOM RESISTANT STYLES ========== */
+@media (min-width: 769px) {
+  .hero-greeting {
+    font-size: 2.5rem !important;
+    min-height: 3rem !important;
+    display: block !important;
+    line-height: 1.2 !important;
+    position: relative !important;
+    z-index: 100 !important;
+    background: linear-gradient(45deg, #00d4ff, #0ea5e9) !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    text-shadow: 0 0 30px #00d4ff, 0 0 60px #00d4ff, 0 0 90px #00d4ff !important;
+    color: #00d4ff !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
   }
 }
 
 /* ========== MOBILE SCROLL FIXES ========== */
 @media (max-width: 768px) {
-  * {
-    -webkit-overflow-scrolling: touch;
-  }
-  
   html {
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
   }
   
   body {
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior: none;
-  }
-  
-  .elegant-app {
-    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
   }
 }
 
@@ -1330,7 +1413,7 @@ body {
   
   .hero-container {
     text-align: center;
-    padding: 2rem 1rem 3rem 1rem;
+    padding: 2rem 1rem 2rem 1rem;
     flex-direction: column;
     min-height: 90vh;
     gap: 1.5rem;
@@ -1343,14 +1426,13 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 0;
+    align-items: center;
+    text-align: center;
+    width: 100%;
   }
   
   .hero-visual {
-    order: 2;
-    flex: 0 0 auto;
-    margin-top: 0;
-    margin-bottom: 0.5rem;
+    display: none;
   }
   
   .hero-name {
@@ -1507,9 +1589,7 @@ body {
 
 @media (max-width: 768px) {
   .parallax-bg {
-    position: absolute;
-    height: 100%;
-    will-change: auto;
+    display: none;
   }
 }
 
