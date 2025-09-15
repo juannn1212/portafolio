@@ -30,7 +30,7 @@ export const projects = [
     category: "Full Stack",
     featured: false,
     demoUrl: "https://library-management-demo.com",
-    githubUrl: "https://github.com/juannn1212/library-management",
+    githubUrl: "https://github.com/juannn1212/sistema_gestion_biblioteca",
     details: {
       challenge: "Crear un sistema robusto para gestión de bibliotecas con múltiples funcionalidades",
       solution: "Desarrollé una plataforma completa con Spring Boot, gestión de préstamos y catálogo digital",
@@ -111,23 +111,24 @@ export const projects = [
   },
   {
     id: 6,
-    title: "Plataforma de Colaboración en Tiempo Real",
-    description: "Herramienta web para colaboración en tiempo real con editor de documentos, videollamadas y pizarra virtual.",
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop&crop=center",
-    technologies: ["React", "Socket.io", "WebRTC", "Quill.js", "Canvas API"],
+    title: "Proyecto Seguimiento DHL - Full Stack .NET + React",
+    description: "Sistema full-stack para cotizar envíos, crear envíos con etiqueta y hacer tracking usando DHL Express (MyDHL API).",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&crop=center",
+    technologies: [".NET 8", "React", "TypeScript", "Entity Framework", "SQL Server", "DHL API"],
     category: "Full Stack",
     featured: false,
-    demoUrl: "https://collaboration-platform-demo.com",
-    githubUrl: "https://github.com/juannn1212/realtime-collaboration",
+    demoUrl: "https://dhl-tracking-demo.com",
+    githubUrl: "https://github.com/juannn1212/proyectoSeguimiento",
     details: {
-      challenge: "Crear una plataforma de colaboración con múltiples herramientas integradas",
-      solution: "Desarrollé un sistema completo con editor colaborativo y comunicación en tiempo real",
+      challenge: "Crear un sistema completo de gestión de envíos con integración a DHL Express API",
+      solution: "Desarrollé una aplicación full-stack con backend .NET 8 y frontend React para cotizar, crear envíos y hacer tracking",
       features: [
-        "Editor de documentos colaborativo en tiempo real",
-        "Videollamadas integradas con WebRTC",
-        "Pizarra virtual con dibujo colaborativo",
-        "Sistema de permisos y roles",
-        "Historial de cambios y versiones"
+        "Cotización de envíos con persistencia en base de datos",
+        "Creación de envíos con generación de etiquetas PDF",
+        "Sistema de tracking con timeline de eventos",
+        "Historial completo de cotizaciones y envíos",
+        "UI responsive con tema DHL y validaciones robustas",
+        "Integración completa con MyDHL API"
       ]
     }
   }

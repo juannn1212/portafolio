@@ -1,5 +1,5 @@
 import React from 'react'
-import { Github, Brain, Smartphone, Globe, Zap, Eye, Heart } from 'lucide-react'
+import { Github, Brain, Smartphone, Globe, Zap, Eye, Heart, Truck } from 'lucide-react'
 import { projects } from '../data/projects'
 
 const Projects = () => {
@@ -9,7 +9,7 @@ const Projects = () => {
     'Plataforma de Streaming Personal': Zap,
     'App de Gestión de Eventos': Smartphone,
     'Dashboard de Monitoreo IoT': Eye,
-    'Plataforma de Colaboración en Tiempo Real': Heart
+    'Proyecto Seguimiento DHL - Full Stack .NET + React': Truck
   }
 
   const handleProjectClick = (projectId) => {
@@ -21,6 +21,22 @@ const Projects = () => {
       console.log('✅ Proyecto 1 detectado, abriendo GitHub...');
       try {
         window.open('https://github.com/juannn1212/AI-Powered_Personal_Assistant', '_blank');
+        console.log('✅ window.open ejecutado correctamente');
+      } catch (error) {
+        console.error('❌ Error al abrir GitHub:', error);
+      }
+    } else if (projectId === 2) {
+      console.log('✅ Proyecto 2 (Biblioteca) detectado, abriendo GitHub...');
+      try {
+        window.open('https://github.com/juannn1212/sistema_gestion_biblioteca', '_blank');
+        console.log('✅ window.open ejecutado correctamente');
+      } catch (error) {
+        console.error('❌ Error al abrir GitHub:', error);
+      }
+    } else if (projectId === 6) {
+      console.log('✅ Proyecto 6 (DHL) detectado, abriendo GitHub...');
+      try {
+        window.open('https://github.com/juannn1212/proyectoSeguimiento', '_blank');
         console.log('✅ window.open ejecutado correctamente');
       } catch (error) {
         console.error('❌ Error al abrir GitHub:', error);
@@ -83,25 +99,25 @@ const Projects = () => {
                       alignItems: 'center',
                       gap: '8px',
                       padding: '12px 20px',
-                      background: project.id === 1 ? 'var(--primary)' : 'var(--bg-secondary)',
+                      background: (project.id === 1 || project.id === 2 || project.id === 6) ? 'var(--primary)' : 'var(--bg-secondary)',
                       border: '1px solid var(--border)',
                       borderRadius: 'var(--radius)',
-                      color: project.id === 1 ? 'white' : 'var(--text-muted)',
+                      color: (project.id === 1 || project.id === 2 || project.id === 6) ? 'white' : 'var(--text-muted)',
                       textDecoration: 'none',
                       fontWeight: '500',
                       fontSize: '14px',
-                      cursor: project.id === 1 ? 'pointer' : 'not-allowed',
-                      opacity: project.id === 1 ? '1' : '0.6',
+                      cursor: (project.id === 1 || project.id === 2 || project.id === 6) ? 'pointer' : 'not-allowed',
+                      opacity: (project.id === 1 || project.id === 2 || project.id === 6) ? '1' : '0.6',
                       border: 'none',
                       outline: 'none',
                       userSelect: 'none',
                       position: 'relative',
                       zIndex: '10'
                     }}
-                    disabled={project.id !== 1}
+                    disabled={project.id !== 1 && project.id !== 2 && project.id !== 6}
                   >
                     <Github size={20} />
-                    {project.id === 1 ? 'Ver código' : 'En desarrollo'}
+                    {(project.id === 1 || project.id === 2 || project.id === 6) ? 'Ver código' : 'En desarrollo'}
                   </button>
                 </div>
               </div>

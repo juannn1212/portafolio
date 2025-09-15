@@ -1,48 +1,50 @@
-import React from 'react'
-import Header from './components/Header'
-import Hero from './components/Hero'
-import About from './components/About'
-import Projects from './components/Projects'
-import Skills from './components/Skills'
-import Contact from './components/Contact'
-import CustomCursor from './components/CustomCursor'
-import { useSectionTransition } from './hooks/useSectionTransition'
+import React, { useEffect, useState } from 'react'
+import ElegantNav from './components/ElegantNav'
+import ElegantHero from './components/ElegantHero'
+import ElegantAbout from './components/ElegantAbout'
+import ElegantProjects from './components/ElegantProjects'
+import ElegantContact from './components/ElegantContact'
 
 function App() {
-  const { currentSection, isTransitioning, transitionDirection } = useSectionTransition()
+  const [scrollY, setScrollY] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+      
+      // Parallax sutil para el fondo
+      const parallaxBg = document.querySelector('.parallax-bg')
+      if (parallaxBg) {
+        const yPos = -(window.scrollY * 0.1)
+        parallaxBg.style.transform = `translateY(${yPos}px)`
+      }
+
+      // Efectos sutiles en formas flotantes
+      const shapes = document.querySelectorAll('.shape')
+      shapes.forEach((shape, index) => {
+        const speed = 0.05 + (index * 0.02)
+        const yPos = window.scrollY * speed
+        shape.style.transform = `translateY(${yPos}px)`
+      })
+    }
+    
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   return (
-    <div className="App">
-      <CustomCursor />
-      <Header />
-      <main className={`main-content ${isTransitioning ? 'section-transitioning' : ''}`}>
-        {/* Efectos de transición entre secciones */}
-        {isTransitioning && (
-          <div className={`section-transition-overlay ${transitionDirection}`}>
-            <div className="transition-particles">
-              {[...Array(8)].map((_, i) => (
-                <div
-                  key={i}
-                  className="transition-particle"
-                  style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    animationDelay: `${Math.random() * 0.3}s`,
-                    '--particle-color': `hsl(${Math.random() * 360}, 70%, 60%)`
-                  }}
-                />
-              ))}
-            </div>
-            <div className="transition-wave"></div>
-          </div>
-        )}
-        
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </main>
+    <div className="elegant-app">
+      {/* Fondo parallax sutil */}
+      <div className="parallax-bg"></div>
+      
+      <ElegantNav />
+      <ElegantHero />
+      <ElegantAbout />
+      <ElegantProjects />
+      <ElegantContact />
     </div>
   )
 }
